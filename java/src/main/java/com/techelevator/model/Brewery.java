@@ -11,6 +11,10 @@ public class Brewery {
         this.breweryName = breweryName;
     }
 
+    public Brewery() {
+
+    }
+
     public int getBreweryId() {
         return breweryId;
     }
