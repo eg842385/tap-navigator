@@ -16,8 +16,8 @@ CREATE TABLE users (
 
 CREATE TABLE brewery (
     brewery_id SERIAL,
-	name varchar(50) NOT NULL UNIQUE,
 	user_id int NOT NULL,
+	name varchar(50) NOT NULL UNIQUE,
 	description text NOT NULL,
 	address varchar(100) NOT NULL,
 	city varchar(50) NOT NULL,

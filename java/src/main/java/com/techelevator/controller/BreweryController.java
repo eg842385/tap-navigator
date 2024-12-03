@@ -6,13 +6,16 @@ import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @CrossOrigin
+
 public class BreweryController {
 
 
@@ -25,19 +28,34 @@ public class BreweryController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(path = "/addbrewery", method = RequestMethod.POST)
-    public void addBrewery(@Valid @RequestBody Brewery brewery){
+    @RequestMapping(path = "/breweries", method = RequestMethod.POST)
+    public Brewery addBrewery(@Valid @RequestBody Brewery brewery){
         try{
 
             if (breweryDao.getBreweryByName(brewery.getBreweryName()) != null) {
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Brewery already exists.");
             } else {
-                breweryDao.addBrewery(brewery);
+               Brewery newBrewery = breweryDao.addBrewery(brewery);
+                return newBrewery;
             }
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Unable to add brewery.");
         }
     }
+
+
+    @RequestMapping( path ="/breweries", method = RequestMethod.GET)
+    public List<Brewery> getBreweries(){
+
+        try{
+            return breweryDao.getBreweries();
+        }catch (DaoException e){
+            throw new DaoException("Unable to retrieve Breweries", e);
+
+        }
+    }
+
+
 
 
 }

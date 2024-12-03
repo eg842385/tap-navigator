@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -18,9 +19,25 @@ public class JdbcBreweryDao implements BreweryDao{
     public JdbcBreweryDao(JdbcTemplate jdbcTemplate){ this.jdbcTemplate = jdbcTemplate;}
 
     @Override
-    public List<Brewery> getBrewery() {
-        return null;
+    public List<Brewery> getBreweries() {
+
+        List<Brewery> breweries = new ArrayList<>();
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+                "\tFROM brewery";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            while (results.next()) {
+                Brewery brewery = mapRowToBrewery(results);
+                breweries.add(brewery);
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return breweries;
+
     }
+
+
 
     @Override
     public Brewery addBrewery(Brewery brewery) {
@@ -40,7 +57,8 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery getBreweryById(int id) {
         Brewery brewery = null;
-        String sql = "SELECT brewery_id, user_id, name FROM brewery WHERE brewery_id = ?";
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+                "\tFROM brewery WHERE brewery_id = ?;";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
             if (results.next()){
@@ -56,7 +74,8 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery getBreweryByName(String name) {
         Brewery brewery = null;
-        String sql = "SELECT brewery_id, user_id, name FROM brewery WHERE name = (LOWER(TRIM(?)))";
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+                "\tFROM brewery WHERE name = (LOWER(TRIM(?)));";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
             if (results.next()){
@@ -74,7 +93,11 @@ public class JdbcBreweryDao implements BreweryDao{
         brewery.setBreweryId(rs.getInt("brewery_id"));
         brewery.setBreweryName(rs.getString("name"));
         brewery.setUserId(rs.getInt("user_id"));
-
+        brewery.setDescription(rs.getString("description"));
+        brewery.setAddress(rs.getString("address"));
+        brewery.setCity(rs.getString("city"));
+        brewery.setState(rs.getString("state"));
+        brewery.setZipcode(rs.getInt("zipcode"));
         return brewery;
     }
     
