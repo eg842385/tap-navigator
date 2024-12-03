@@ -3,7 +3,7 @@
         <h2>Add a New Brewery!</h2>
         <div>
             <label for="name">Brewery Name: </label>
-            <input id="name" type="text" v-model="newBrewery.name">
+            <input id="name" type="text" v-model="newBrewery.breweryName">
         </div>
         <div>
             <label for="brewerId">Brewer ID: </label>
@@ -47,8 +47,8 @@ export default {
     data() {
         return {
             newBrewery: {
-                id: '',
-                name: '',
+                // id: '',
+                breweryName: '',
                 userId: '',
                 description: '',
                 address: '',
@@ -60,11 +60,18 @@ export default {
     },
     methods: {
 
-        async submitForm() {
+         submitForm() {
             try {
-                const response = await breweryService.addBrewery(this.newBrewery);
-                console.log('Brewery created: ', response.data)
-            } catch(error) {
+                const response =  breweryService.addBrewery(this.newBrewery);
+                console.log('Response: ', response);
+                if (response.status === 200) {
+                    console.log('New Brewery Added Successfully!');
+                } else if (response.status === 403) {
+                    console.log('You are not authorized to create a brewery.');
+                } else {
+                    console.log('Brewery unable to created.');
+                }
+            } catch (error) {
                 console.error('Failed to create brewery:', error);
             }
 
@@ -83,13 +90,13 @@ export default {
             //             this.handleErrorResponse(error, 'adding');
             //         });
             // } else {
-                
+
             // }
         },
         cancelForm() {
             this.newBrewery = {
-                id: '',
-                name: '',
+                // id: '',
+                breweryName: '',
                 userId: '',
                 description: '',
                 address: '',

@@ -29,7 +29,7 @@ public class BreweryController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(path = "/breweries", method = RequestMethod.POST)
-    public Brewery addBrewery(@Valid @RequestBody Brewery brewery){
+    public Brewery addBrewery( @RequestBody Brewery brewery){
         try{
 
             if (breweryDao.getBreweryByName(brewery.getBreweryName()) != null) {
@@ -39,6 +39,7 @@ public class BreweryController {
                 return newBrewery;
             }
         } catch (DaoException e) {
+            System.out.println(e.getMessage());
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Unable to add brewery.");
         }
     }
