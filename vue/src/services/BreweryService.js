@@ -13,7 +13,7 @@ export default {
   addBrewery(newBrewery) {
     const token = localStorage.getItem('token');
     
-    return http.post('/breweries', newBrewery,{
+    return http.post('/breweries/add', newBrewery,{
         headers: {
             Authorization: `Bearer ${token}`
         }

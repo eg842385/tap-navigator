@@ -7,7 +7,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import AddBreweryView from '../views/AddBreweryView.vue';
-
+import BreweryListView from '../views/BreweryListView.vue';
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
  * inside of App.vue depending on the URL.
@@ -50,11 +50,19 @@ const routes = [
     }
   },
   {
-    path: "/breweries",
+    path: "/breweries/add",
     name: "addBreweries",
     component: AddBreweryView,
     meta: {
       requiresAuth: true
+    }
+  },
+  {
+    path: "/breweries",
+    name: "listBreweries",
+    component: BreweryListView,
+    meta: {
+      requiresAuth: false
     }
   }
 ];

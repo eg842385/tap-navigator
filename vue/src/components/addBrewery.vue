@@ -60,24 +60,8 @@ export default {
     },
     methods: {
 
-        // submitForm() {
-        //     try {
-        //         const response = breweryService.addBrewery(this.newBrewery);
-        //         console.log('Response: ', response);
-        //         if (response.status === 200) {
-        //             console.log('New Brewery Added Successfully!');
-        //         } else if (response.status === 403) {
-        //             console.log('You are not authorized to create a brewery.');
-        //         } else {
-        //             console.log('Brewery unable to created.');
-        //         }
-        //     } catch (error) {
-        //         console.error('Failed to create brewery:', error);
-        //     }
-
-        // },
-            submitForm() {
-                if ( this.$store.state.user.authorities[0].name == 'ROLE_ADMIN'){
+        submitForm() {
+            if (this.$store.state.user.authorities[0].name == 'ROLE_ADMIN') {
                 breweryService.addBrewery(this.newBrewery)
                     .then(response => {
                         console.log('Response: ', response);
@@ -85,8 +69,9 @@ export default {
                             console.log('New Brewery Added Successfully!');
                             alert('New Brewery Added Successfully!');
                             this.cancelForm();
-                        } else if (response.status === 403 || response.status === 401) {
-                            console.log('You are not authorized to create a brewery.');
+                            //DO WE EVEN NEED??? below
+                        // } else if (response.status === 403 || response.status === 401) {
+                        //     console.log('You are not authorized to create a brewery.');
                         } else {
                             console.log('Brewery unable to be created.');
                         }
@@ -94,11 +79,11 @@ export default {
                     .catch(error => {
                         console.error('Failed to create brewery:', error);
                     });
-                } else {
-                    alert('You are not allowed to be here!!');
-                }
-            },
-        
+            } else {
+                alert('You are not allowed to be here!!');
+            }
+        },
+
         cancelForm() {
             this.newBrewery = {
                 // id: '',

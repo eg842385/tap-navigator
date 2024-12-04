@@ -28,7 +28,7 @@ public class BreweryController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping(path = "/breweries", method = RequestMethod.POST)
+    @RequestMapping(path = "/breweries/add", method = RequestMethod.POST)
     public Brewery addBrewery( @RequestBody Brewery brewery){
         try{
 
