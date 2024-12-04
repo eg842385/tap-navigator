@@ -1,7 +1,7 @@
 <template>
     <div>
         <button @click="this.$router.push({name:'addBreweries'})">Add a New Brewery!</button>
-        <table>
+        <table class="brewerieslist">
             <thead>
                 <tr>
                     <th v-for="(header, index) in tableHeaders" :key="index">
@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="brewery in breweries" :key="brewery.id">
+                <tr class="details" v-for="brewery in breweries" :key="brewery.id">
                     <td>{{ brewery.breweryName }}</td>
                     <td>{{ brewery.description }}</td>
                     <td>{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</td>
@@ -49,4 +49,22 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.brewerieslist {
+    padding: 1rem;
+}
+
+.details {
+    text-align: center;
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+    margin: 20px;
+    align-content: center;
+    
+}
+
+
+</style>
