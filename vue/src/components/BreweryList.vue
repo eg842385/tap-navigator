@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <button @click.prevent="goToAddBreweryForm" >Add a New Brewery!</button>
+    <div class="container">
         <table class="brewerieslist">
             <thead>
                 <tr>
@@ -11,16 +10,17 @@
             </thead>
             <tbody>
                 <tr class="details" v-for="brewery in breweries" :key="brewery.id">
-                    <td>
+                    <td class="name">
                         <router-link :to="{ name: 'breweryDetails', params: { id: brewery.breweryId } }">
                             {{ brewery.breweryName }}
                         </router-link>
                     </td>
-                    <td>{{ brewery.description }}</td>
-                    <td>{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</td>
+                    <td class="description">{{ brewery.description }}</td>
+                    <td class="location">{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</td>
                 </tr>
             </tbody>
         </table>
+        <button @click.prevent="goToAddBreweryForm" >Add a New Brewery!</button>
     </div>
 </template>
 
@@ -28,9 +28,6 @@
 import axios from 'axios';
 
 export default {
-    components: {
-        BreweryDetailsVue
-    },
     data() {
         return {
             breweries: [],
@@ -59,21 +56,41 @@ export default {
 </script>
 
 <style>
-.brewerieslist {
-    padding: 1rem;
+.container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-content: center;
+    justify-content: center; 
 }
 
-.details {
+button {
+    padding: 10px;
+    max-height: 40px;
+    border-radius: 20px;
+}
+
+button:hover{
+    background-color: red;
+}
+
+.name {
     text-align: center;
+}
+
+td {
+    text-align: left;
     border: 1px solid black;
+    padding: 10px;
 }
 
 table {
     width: 100%;
-    margin: 20px;
-    align-content: center;
-    
+    margin: 20px 0;
+    border-collapse: collapse;
+    max-width: fit-content;
+    margin: 20px auto;    
 }
+
 
 
 </style>
