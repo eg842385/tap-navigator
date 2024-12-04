@@ -20,4 +20,8 @@ export default {
     });
   },
 
+  getBreweryById(id){
+    return http.get(`/breweries/${id}`);
+  }
+
 }

@@ -11,7 +11,8 @@
             </thead>
             <tbody>
                 <tr class="details" v-for="brewery in breweries" :key="brewery.id">
-                    <td>{{ brewery.breweryName }}</td>
+                    <router-link v-bind:to="{name: 'breweryDetails', params: {id: brewery.breweryId}}">{{ brewery.breweryName }}</router-link>
+                    <brewery-details-vue></brewery-details-vue>
                     <td>{{ brewery.description }}</td>
                     <td>{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</td>
                 </tr>
@@ -22,8 +23,12 @@
 
 <script>
 import axios from 'axios';
+import BreweryDetailsVue from './BreweryDetails.vue';
 
 export default {
+    components: {
+        BreweryDetailsVue
+    },
     data() {
         return {
             breweries: [],
