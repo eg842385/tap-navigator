@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="this.$router.push({name:'addBreweries'})">Add a New Brewery!</button>
+        <button @click.prevent="goToAddBreweryForm" >Add a New Brewery!</button>
         <table class="brewerieslist">
             <thead>
                 <tr>
@@ -38,12 +38,14 @@ export default {
             console.error('Error fetching data:', error);
         }
     },
-    method: {
+    methods: {
         goToAddBreweryForm(){
-            alert('Button clicked');
-            console.log('Navigating to Add Brewery form');
+            // alert('Button clicked');
+            // console.log('Navigating to Add Brewery form');
             this.$router.push({name: 'addBreweries'});
         }
+
+
     }
 
 }

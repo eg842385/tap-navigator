@@ -88,6 +88,28 @@ public class JdbcBreweryDao implements BreweryDao{
         return brewery;
     }
 
+    @Override
+    public Brewery searchBreweryByName(String name) {
+        Brewery brewery = null;
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+                "\tFROM brewery WHERE name ILIKE '%?%';";
+        try{
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
+            if (results.next()){
+                brewery = mapRowToBrewery(results);
+            }
+
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        return brewery;
+    }
+
+    @Override
+    public boolean updateBrewery(Brewery brewery) {
+        return false;
+    }
+
     private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
         brewery.setBreweryId(rs.getInt("brewery_id"));
