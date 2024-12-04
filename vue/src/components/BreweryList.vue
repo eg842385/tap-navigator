@@ -11,8 +11,11 @@
             </thead>
             <tbody>
                 <tr class="details" v-for="brewery in breweries" :key="brewery.id">
-                    <router-link v-bind:to="{name: 'breweryDetails', params: {id: brewery.breweryId}}">{{ brewery.breweryName }}</router-link>
-                    <brewery-details-vue></brewery-details-vue>
+                    <td>
+                        <router-link :to="{ name: 'breweryDetails', params: { id: brewery.breweryId } }">
+                            {{ brewery.breweryName }}
+                        </router-link>
+                    </td>
                     <td>{{ brewery.description }}</td>
                     <td>{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</td>
                 </tr>
@@ -23,7 +26,6 @@
 
 <script>
 import axios from 'axios';
-import BreweryDetailsVue from './BreweryDetails.vue';
 
 export default {
     components: {
