@@ -17,6 +17,14 @@
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
+      <div class="form-input-group">
+        Account Type:
+        <select name="" id="" v-model="user.role">
+          <option value="">--</option>
+          <option value="BREWER">Brewer</option>
+          <option value="USER">Beer Lover</option>
+        </select>
+      </div>
       <button type="submit">Create Account</button>
       <p><router-link v-bind:to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
     </form>
@@ -33,7 +41,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: '',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -41,9 +49,9 @@ export default {
   },
   methods: {
     register() {
-      if (this.user.password != this.user.confirmPassword) {
+      if ((this.user.password != this.user.confirmPassword) || this.user.role == '--') {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+        this.registrationErrorMsg = 'Invalid registration. Confirm Passwords match and account type is chosen.';
       } else {
         authService
           .register(this.user)

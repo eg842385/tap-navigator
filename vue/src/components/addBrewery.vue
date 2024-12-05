@@ -38,16 +38,21 @@
 import breweryService from '../services/BreweryService';
 
 export default {
-    // props: {
-    //     brewery: {
-    //         type: Object,
-    //         // required: true
-    //     }
-    // },
+    computed: {
+        currentUserId() {
+            return this.$store.state.user.id;
+        },
+        isAdmin() {
+            return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+        },
+        isCorrectBrewer() {
+            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
+        }
+    },
     data() {
         return {
             newBrewery: {
-                // id: '',
+                breweryId: '',
                 breweryName: '',
                 userId: '',
                 description: '',
@@ -61,17 +66,19 @@ export default {
     methods: {
 
         submitForm() {
-            if (this.$store.state.user.authorities[0].name == 'ROLE_ADMIN') {
+            if (this.isAdmin) {
                 breweryService.addBrewery(this.newBrewery)
                     .then(response => {
                         console.log('Response: ', response);
                         if (response.status === 201 || response.status === 200) {
-                            console.log('New Brewery Added Successfully!');
                             alert('New Brewery Added Successfully!');
+                            const newBreweryId = response.data.breweryId;
                             this.cancelForm();
-                            //DO WE EVEN NEED??? below
-                        // } else if (response.status === 403 || response.status === 401) {
-                        //     console.log('You are not authorized to create a brewery.');
+                            this.$router.push({
+                                name: 'breweryDetails',
+                                params: { id: newBreweryId }
+                            });
+
                         } else {
                             console.log('Brewery unable to be created.');
                         }
@@ -80,7 +87,8 @@ export default {
                         console.error('Failed to create brewery:', error);
                     });
             } else {
-                alert('You are not allowed to be here!!');
+                alert('You are not allowed to add a brewery.');
+                this.$router.push({ name: 'listBreweries' });
             }
         },
 
