@@ -17,10 +17,15 @@
             </tbody>
         </table>
     </div>
+
+
+        <button @click.prevent="goToUpdateBrewery" >Update Brewery</button>
+
 </template>
 
 <script>
 import BreweryService from '../services/BreweryService';
+
 
 export default {
     props : {
@@ -49,7 +54,10 @@ export default {
         });
        },
 
-       
+       goToUpdateBrewery(){
+        this.$router.push({name: 'updateBrewery', params:{id : this.$route.params.id} });
+
+       }
     }
 
 }

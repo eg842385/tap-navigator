@@ -12,16 +12,21 @@ export default {
 
   addBrewery(newBrewery) {
     const token = localStorage.getItem('token');
-    
-    return http.post('/breweries/add', newBrewery,{
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
+
+    return http.post('/breweries/add', newBrewery, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
   },
 
-  getBreweryById(id){
+  getBreweryById(id) {
     return http.get(`/breweries/${id}`);
+  },
+
+  updateBrewery(brewery) {
+    return http.put(`breweries/${id}/update`)
   }
+
 
 }
