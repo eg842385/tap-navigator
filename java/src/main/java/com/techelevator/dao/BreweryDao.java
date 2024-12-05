@@ -17,4 +17,6 @@ public interface BreweryDao {
     Brewery searchBreweryByName(String name);
 
     boolean updateBrewery(Brewery brewery);
+
+
 }

@@ -68,4 +68,31 @@ public class BreweryController {
     }
 
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'BREWER')")
+    @RequestMapping(path = "/breweries/{id}", method= RequestMethod.PUT)
+    public void updateBrewery (@PathVariable int id, @RequestBody Brewery brewery){
+
+
+        if(brewery.getBreweryId() ==id) {
+            try {
+
+                boolean isUpdated = breweryDao.updateBrewery(brewery);
+                if (!isUpdated) {
+                    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Brewery not updated");
+                }
+
+            } catch (DaoException e) {
+                throw new DaoException("Unable to retrieve Brewery", e);
+            }
+
+        } else {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "BreweryID does not match existing brewery");
+        }
+    }
+
+
+
+
+
+
 }

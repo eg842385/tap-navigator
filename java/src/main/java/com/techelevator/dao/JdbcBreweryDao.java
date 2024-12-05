@@ -107,8 +107,28 @@ public class JdbcBreweryDao implements BreweryDao{
 
     @Override
     public boolean updateBrewery(Brewery brewery) {
-        return false;
+
+        String sql =" UPDATE brewery\n" +
+                "\tSET user_id=?, name=?, description=?, address=?, city=?, state=?, zipcode=?\n" +
+                "\tWHERE brewery_id=?;";
+                try {
+                   int rowsUpdated = jdbcTemplate.update(sql,
+                           brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(),brewery.getBreweryId());
+                    return rowsUpdated >0;
+
+                } catch (CannotGetJdbcConnectionException e) {
+                    throw new DaoException("Unable to connect to server or database", e);
+                }catch (DataIntegrityViolationException e) { throw new DaoException("Data integrity violation", e);
+                }
+
+
     }
+
+
+
+
+
+
 
     private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
