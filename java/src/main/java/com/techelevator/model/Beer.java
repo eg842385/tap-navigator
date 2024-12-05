@@ -8,13 +8,20 @@ public class Beer {
     private String description;
     private double abv;
 
-    public Beer(int beerId, int breweryId, String beerName, String beerType, String description, double abv) {
+    private String img;
+
+    public Beer(){
+
+    }
+
+    public Beer(int beerId, int breweryId, String beerName, String beerType, String description, double abv, String img) {
         this.beerId = beerId;
         this.breweryId = breweryId;
         this.beerName = beerName;
         this.beerType = beerType;
         this.description = description;
         this.abv = abv;
+        this.img = img;
     }
 
     public int getBeerId() {
@@ -63,5 +70,13 @@ public class Beer {
 
     public void setAbv(double abv) {
         this.abv = abv;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }
