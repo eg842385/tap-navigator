@@ -19,9 +19,7 @@
             </tbody>
         </table>
     </div>
-    <div>
-        <button @click.prevent="deleteBeer" >Delete Beer</button>
-    </div>
+    
 </template>
 
 <script>
