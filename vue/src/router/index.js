@@ -10,6 +10,7 @@ import AddBreweryView from '../views/AddBreweryView.vue';
 import BreweryListView from '../views/BreweryListView.vue';
 import BreweryDetailsView from '../views/BreweryDetailsView.vue';
 import UpdateBreweryView from '../views/UpdateBreweryView.vue';
+import CombinedBeerBreweryView from '../views/CombinedBeerBreweryView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -85,7 +86,14 @@ const routes = [
       requiresAuth: true
     }
   },
-
+  {
+    path: "/breweries/:id/beers",
+    name: "combined-view",
+    component: CombinedBeerBreweryView,
+    meta: {
+      requiresAuth: false
+    }
+  }
 
 
 ];
