@@ -39,7 +39,8 @@ export default {
             return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
         },
         isCorrectBrewer() {
-            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
+            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' 
+            && (this.currentUserId == this.brewery.userId);
         }
     },
     data() {
