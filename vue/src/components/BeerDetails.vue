@@ -1,5 +1,27 @@
 <template>
-    <div>{{beer}}</div>
+    <div> 
+        <table class="beerDetails">
+            <thead>
+                <tr>
+                    <th v-for="(header, index) in tableHeaders" :key="index">
+                        {{ header }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="details">
+                    <td>{{ beer.beerName }}</td>
+                    <td>{{beer.beerType}}</td>
+                    <td>{{ beer.description }}</td>
+                    <td>{{beer.abv}}</td>
+                    <td>{{beer.img}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <!-- <button @click.prevent="goToUpdateBeer" >Update Beer</button> -->
+    </div>
 </template>
 
 <script>
@@ -19,7 +41,7 @@ export default {
     data() {
         return {
             beer: {},
-            // tableHeaders: ['Brewery Name ', 'Description ', 'Location']
+            tableHeaders: ['Name ', 'Type ', 'Description', 'ABV', 'PIC']
         }
     },
     async created() {
@@ -41,4 +63,4 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped></style>

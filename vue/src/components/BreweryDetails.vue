@@ -17,10 +17,9 @@
             </tbody>
         </table>
     </div>
-
-
+    <div>
         <button @click.prevent="goToUpdateBrewery" >Update Brewery</button>
-
+    </div>
 </template>
 
 <script>
