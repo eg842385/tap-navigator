@@ -70,15 +70,15 @@ const routes = [
       requiresAuth: false
     }
   },
-  {
-    path: "/breweries/:id",
-    name: "breweryDetails",
-    component: BreweryDetailsView,
-    props: true,
-    meta: {
-      requiresAuth: false
-    }
-  },
+  // {
+  //   path: "/breweries/:id",
+  //   name: "breweryDetails",
+  //   component: BreweryDetailsView,
+  //   props: true,
+  //   meta: {
+  //     requiresAuth: false
+  //   }
+  // },
   {
     path: "/breweries/:id/update",
     name: "updateBrewery",
@@ -87,8 +87,9 @@ const routes = [
       requiresAuth: true
     }
   },
+  // /beers from url below
   {
-    path: "/breweries/:id/beers",
+    path: "/breweries/:id", 
     name: "combined-view",
     component: CombinedBeerBreweryView,
     meta: {

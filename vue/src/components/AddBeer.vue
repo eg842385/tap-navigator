@@ -22,7 +22,8 @@
             <input id="img" type="text" v-model="newBeer.img">
         </div>
         <button class="btn btn-submit">Submit</button>
-        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
+        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Clear</button>
+        <button class="btn btn-cancel" v-on:click="goBack" type="button">Go Back</button>
     </form>
 </template>
 <script>
@@ -95,6 +96,13 @@ export default {
                 abv: '',
                 img: '',
             };
+        },
+
+        goBack() {
+            this.$router.push({
+                name: 'combined-view',
+                params: { id: this.$route.params.id }
+            });
         },
 
         getUserIdFromBrewery() {

@@ -88,7 +88,7 @@ export default {
       if (this.isAdmin || this.isCorrectBrewer) {
         BreweryService.updateBrewery(this.brewery)
           .then(() => {
-            this.$router.push({ name: 'breweryDetails', params: { id: this.$route.params.id } });
+            this.$router.push({ name: 'combined-view', params: { id: this.$route.params.id } });
           })
           .catch((error) => {
             console.error('Error updating brewery: ', error);
@@ -99,7 +99,7 @@ export default {
     },
 
     cancelForm() {
-      this.$router.push({ name: 'breweryDetails', params: { id: this.$route.params.id } });
+      this.$router.push({ name: 'combined-view', params: { id: this.$route.params.id } });
     },
 
   },
