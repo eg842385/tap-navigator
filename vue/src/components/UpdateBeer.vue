@@ -22,8 +22,6 @@
             <input id="img" type="text" v-model="updatedBeer.img">
         </div>
         <button class="btn btn-submit">Submit</button>
-        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Clear</button>
-        <button class="btn btn-cancel" v-on:click="goBack" type="button">Go Back</button>
     </form>
 </template>
 
@@ -32,6 +30,16 @@ import BeerService from '../services/BeerService';
 import BreweryService from '../services/BreweryService';
 
 export default {
+    props: {
+        id: {
+            type: String,
+            required: true
+        },
+        beerId: {
+            type: String,
+            required: true
+        }
+    },
     data() {
         return {
             isFormShowing: true,
@@ -65,10 +73,7 @@ export default {
     },
     methods: {
         getBeerData() {
-            const breweryId = this.$route.params.id;
-            const beerId = this.$route.params.beerId;
-
-            BeerService.getBeerDetailsByBeerId(breweryId, beerId)
+            BeerService.getBeerDetailsByBeerId(this.id, this.beerId)
                 .then(response => {
                     this.updatedBeer = response.data;
                 })
@@ -90,9 +95,12 @@ export default {
 
         updateBeer() {
             if (this.isAdmin || this.isCorrectBrewer) {
-                BeerService.updateBeer(this.$route.params.id, this.$route.params.beerId, this.updateBeer)
+                BeerService.updateBeer(this.id, this.beerId, this.updatedBeer)
                     .then(() => {
+                        alert('Beer details updated successfully!');
                         this.isFormShowing = false;
+                        this.$router.go(0);
+                        // this.$router.push({name: 'beerDetails', params: {id: this.$route.params.id, beerId: this.$route.params.beerId}});
                     })
                     .catch((error) => {
                         console.error('Error updating beer: ', error);

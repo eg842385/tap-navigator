@@ -58,7 +58,7 @@ export default {
         };
     },
     created() {
-        this.getUserIdFromBrewery;
+        this.getUserIdFromBrewery();
     },
     methods: {
         submitForm() {

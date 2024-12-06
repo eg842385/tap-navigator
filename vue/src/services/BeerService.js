@@ -24,6 +24,10 @@ export default {
   updateBeer(id, beerId, updatedBeer){
     return http.put(`/breweries/${id}/beers/${beerId}`, updatedBeer,
     { headers: getAuthHeader() });
+  },
+  deleteBeer(id, beerId){
+    return http.delete(`/breweries/${id}/beers/${beerId}`,
+    { headers: getAuthHeader() });
   }
 
 }
