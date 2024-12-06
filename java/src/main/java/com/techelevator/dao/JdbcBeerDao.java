@@ -102,7 +102,22 @@ public class JdbcBeerDao implements BeerDao{
     }
 
     @Override
-    public void deleteBeer(Beer beer){
+    public Boolean deleteBeerById(int id){
+        String sql = "DELETE FROM beer\n" +
+                "\tWHERE beer_id=?;";
+        try{
+            int isDeleted = jdbcTemplate.update(sql, id);
+            if(isDeleted>0){
+                return true;
+            }else{
+                return false;
+            }
+        }catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }catch (DataIntegrityViolationException e) { throw new DaoException("Data integrity violation", e);
+        }
+
+
 
     }
 

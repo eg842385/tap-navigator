@@ -77,6 +77,11 @@ public class BeerController {
         }
     }
 
+    @RequestMapping(path = "/breweries/{id}/beers/{beerId}", method = RequestMethod.DELETE)
+    public void deleteBeer(@PathVariable("beerId")int beerId){
+        beerDao.deleteBeerById(beerId);
+    }
+
 
 
 
