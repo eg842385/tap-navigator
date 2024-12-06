@@ -4,14 +4,18 @@ public class Review {
     private int reviewId;
     private int beerId;
     private int rating;
-    private String username;
+    private int userId;
     private String review;
 
-    public Review(int reviewId, int beerId, int rating, String username, String review) {
+    public Review(){
+
+    }
+
+    public Review(int reviewId, int beerId, int rating, int userId, String review) {
         this.reviewId = reviewId;
         this.beerId = beerId;
         this.rating = rating;
-        this.username = username;
+        this.userId = userId;
         this.review = review;
     }
 
@@ -39,12 +43,12 @@ public class Review {
         this.rating = rating;
     }
 
-    public String getUsername() {
-        return username;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getReview() {
