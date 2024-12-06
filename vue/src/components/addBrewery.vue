@@ -10,10 +10,6 @@
             <input id="brewerId" type="number" v-model="newBrewery.userId" required>
         </div>
         <div>
-            <label for="description">Description: </label>
-            <input id="description" type="text" v-model="newBrewery.description" required>
-        </div>
-        <div>
             <label for="address">Address: </label>
             <input id="address" type="text" v-model="newBrewery.address" required>
         </div>
@@ -28,6 +24,10 @@
         <div>
             <label for="zipcode">Zipcode: </label>
             <input id="zipcode" type="number" v-model="newBrewery.zipcode" required>
+        </div>
+        <div>
+            <label for="description">Description: </label>
+            <textarea v-model="newBrewery.description" placeholder="Enter your description here" required></textarea>
         </div>
         <button class="btn btn-submit">Submit</button>
         <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
@@ -75,7 +75,7 @@ export default {
                             const newBreweryId = response.data.breweryId;
                             this.cancelForm();
                             this.$router.push({
-                                name: 'breweryDetails',
+                                name: 'combined-view',
                                 params: { id: newBreweryId }
                             });
 

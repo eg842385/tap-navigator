@@ -17,9 +17,13 @@ export default {
   getBeerDetailsByBeerId(id, beerId) {
     return http.get(`/breweries/${id}/beers/${beerId}`);
   },
-  addBeer(id,newBeer) {
-    return http.post(`/breweries/${id}/beers/add`, newBeer, 
+  addBeer(id, newBeer) {
+    return http.post(`/breweries/${id}/beers/add`, newBeer,
+      { headers: getAuthHeader() });
+  },
+  updateBeer(id, beerId, updatedBeer){
+    return http.put(`/breweries/${id}/beers/${beerId}`, updatedBeer,
     { headers: getAuthHeader() });
-}
+  }
 
 }
