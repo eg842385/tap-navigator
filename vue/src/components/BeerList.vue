@@ -1,5 +1,19 @@
 <template>
-    <div>{{beers}}</div>
+    <div>
+        <h2>What's Currently On Tap</h2>
+        <table>
+            <tbody>
+                <tr class="beerDetails" v-for="beer in beers" 
+                :key="beer.beerId">
+                    <td>{{beer.beerName}}</td>
+                    <td>{{beer.beerType}}</td>
+                    <td>{{beer.description}}</td>
+                    <td>{{beer.abv}}</td>
+                    <td>{{beer.img}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>

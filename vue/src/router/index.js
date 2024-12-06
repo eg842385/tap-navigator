@@ -11,7 +11,7 @@ import BreweryListView from '../views/BreweryListView.vue';
 import BreweryDetailsView from '../views/BreweryDetailsView.vue';
 import UpdateBreweryView from '../views/UpdateBreweryView.vue';
 import CombinedBeerBreweryView from '../views/CombinedBeerBreweryView.vue';
-
+import BeerDetailsView from '../views/BeerDetailsView.vue';
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
  * inside of App.vue depending on the URL.
@@ -90,6 +90,15 @@ const routes = [
     path: "/breweries/:id/beers",
     name: "combined-view",
     component: CombinedBeerBreweryView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
+    path: "/breweries/:id/beers/:beerId",
+    name: "beerDetails",
+    component: BeerDetailsView,
+    props: true,
     meta: {
       requiresAuth: false
     }
