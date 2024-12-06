@@ -1,5 +1,5 @@
 <template>
-    <div>{{beer}}</div>
+    <div>{{beers}}</div>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
     },
     data() {
         return {
-            beer: {},
+            beers: [],
         }
     },
     async created() {
@@ -25,7 +25,7 @@ export default {
         getBeerDetails(id){
             BeerService.getBeersByBreweryId(id)
             .then(response => {
-                this.beer = response.data;
+                this.beers = response.data;
             })
             .catch(error => {
             console.error('Error fetching beer details:', error);
