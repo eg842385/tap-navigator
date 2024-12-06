@@ -1,7 +1,17 @@
 <template>
     <div>
         <h2>What's Currently On Tap</h2>
+        <div>
+            <button @click.prevent="goToAddBeerForm">Add a Beer</button>
+        </div>
         <table>
+            <thead>
+                <tr>
+                    <th v-for="(header, index) in tableHeaders" :key="index">
+                        {{ header }}
+                    </th>
+                </tr>
+            </thead>
             <tbody>
                 <tr class="beerDetails" v-for="beer in beers" :key="beer.beerId">
                     <td>
@@ -28,6 +38,7 @@ export default {
     data() {
         return {
             beers: [],
+            tableHeaders: ['Name ', 'Type']
         }
     },
     async created() {
@@ -43,9 +54,14 @@ export default {
                 .catch(error => {
                     console.error('Error fetching beer details:', error);
                 });
+        },
+
+        goToAddBeerForm(){
+            this.$router.push({name: 'addBeer', params: {id: this.id}});
         }
     }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

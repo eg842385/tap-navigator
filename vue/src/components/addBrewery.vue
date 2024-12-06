@@ -3,31 +3,31 @@
         <h2>Add a New Brewery!</h2>
         <div>
             <label for="name">Brewery Name: </label>
-            <input id="name" type="text" v-model="newBrewery.breweryName">
+            <input id="name" type="text" v-model="newBrewery.breweryName" required>
         </div>
         <div>
             <label for="brewerId">Brewer ID: </label>
-            <input id="brewerId" type="number" v-model="newBrewery.userId">
+            <input id="brewerId" type="number" v-model="newBrewery.userId" required>
         </div>
         <div>
             <label for="description">Description: </label>
-            <input id="description" type="text" v-model="newBrewery.description">
+            <input id="description" type="text" v-model="newBrewery.description" required>
         </div>
         <div>
             <label for="address">Address: </label>
-            <input id="address" type="text" v-model="newBrewery.address">
+            <input id="address" type="text" v-model="newBrewery.address" required>
         </div>
         <div>
             <label for="city">City: </label>
-            <input id="city" type="text" v-model="newBrewery.city">
+            <input id="city" type="text" v-model="newBrewery.city" required>
         </div>
         <div>
             <label for="state">State: </label>
-            <input id="state" type="text" v-model="newBrewery.state">
+            <input id="state" type="text" v-model="newBrewery.state" required>
         </div>
         <div>
             <label for="zipcode">Zipcode: </label>
-            <input id="zipcode" type="number" v-model="newBrewery.zipcode">
+            <input id="zipcode" type="number" v-model="newBrewery.zipcode" required>
         </div>
         <button class="btn btn-submit">Submit</button>
         <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
