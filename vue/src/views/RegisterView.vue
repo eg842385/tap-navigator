@@ -20,7 +20,7 @@
       <div class="form-input-group">
         Account Type:
         <select name="" id="" v-model="user.role">
-          <option value="">--</option>
+          <option value="" disabled selected>--</option>
           <option value="BREWER">Brewer</option>
           <option value="USER">Beer Lover</option>
         </select>

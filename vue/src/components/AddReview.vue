@@ -4,7 +4,7 @@
         <div>
             <label for="rating">Rating: </label>
             <select name="" id="" v-model.number="newReview.rating" required>Rating:
-                <option value="--">--</option>
+                <option value="" disabled selected>--</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -33,6 +33,7 @@ export default {
                 rating: '',
                 review: '',
                 userId: this.$store.state.user.id,
+            
             }
         };
     },
@@ -46,10 +47,7 @@ export default {
                         alert('New Review Added Successfully!');
                         // const newBreweryId = response.data.breweryId;
                         this.cancelForm();
-                        this.$router.push({
-                            name: 'beerDetails',
-                            params: { id: this.$route.params.id, beerId: this.$route.params.beerId }
-                        });
+                        this.$router.go(0);
 
                     } else {
                         console.log('Review unable to be created.');
