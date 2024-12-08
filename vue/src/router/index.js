@@ -8,7 +8,7 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import AddBreweryView from '../views/AddBreweryView.vue';
 import BreweryListView from '../views/BreweryListView.vue';
-import BreweryDetailsView from '../views/BreweryDetailsView.vue';
+// import BreweryDetailsView from '../views/BreweryDetailsView.vue';
 import UpdateBreweryView from '../views/UpdateBreweryView.vue';
 import CombinedBeerBreweryView from '../views/CombinedBeerBreweryView.vue';
 import BeerDetailsView from '../views/BeerDetailsView.vue';
@@ -29,7 +29,7 @@ const routes = [
     name: 'home',
     component: HomeView,
     meta: {
-      requiresAuth: true
+      requiresAuth: false
     }
   },
   {
