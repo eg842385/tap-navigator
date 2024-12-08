@@ -15,7 +15,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('syd','$2a$08$UkVvwpULis
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Hoof Hearted', '4', 'Get it?','300 County Rd 26', 'Merengo', 'Ohio', '43334');
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Urban Artifact', '8', 'Reward the Curious.','1660 Blue Rock St', 'Cincinnati', 'Ohio', '45223');
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Great Lakes Brewing Company', '6', 'Much abrew about something.','2516 Market Ave', 'Cleveland', 'Ohio', '44113');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Fat Head\'s Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Fat Heads Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130');
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Hi-Wire Brewing', '5', 'Chill out man, have a beer!','4600 Beech Street, Suites 100 & 300', 'Norwood', 'Ohio', '45212');
 
 
@@ -27,7 +27,7 @@ INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('2
 INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('2', 'Peaches & Cream', 'Nitro Fruit Tart','Whether you’re a fruit tart aficionado or new to nitrogen-infused brews, this is a taste journey you won’t want to miss. Open the can, pour, and let the indulgence begin!', '7.1', 'a url');
 INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('2', 'Archaeopteryx', 'Fruit Tart','A blend of wild-caught cultures, curated to highlight the terrior of the Ohio River Valley and aged on whole Obsidian Berries.', '8.9', 'a url');
 INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('1', 'Combat Spandex', 'Sour Triple IPA','Brewed With Mango, Kiwi, Vanilla & Milk Sugar', '11.4', 'a url');
-INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('1', 'Don\'t Worry, My Mom Said It\'s cool', 'Imperial Birthday Cake Stout','Brewed with Astronaut Ice Cream, Cacao Nibs & Vanilla', '12.0', 'a url');
+INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('1', 'Do not Worry, My Mom Said It is cool', 'Imperial Birthday Cake Stout','Brewed with Astronaut Ice Cream, Cacao Nibs & Vanilla', '12.0', 'a url');
 INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('1', 'Girth Brooks', 'Double Mash Stout','Brewed with Hoof Hearted Coffee, Vanilla & Coconut', '15.0', 'a url');
 INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('4', 'Bumble Berry', 'Honey Blueberry Ale','Made with honey and blueberries!', '5.3', 'a url');
 INSERT INTO beer (brewery_id, name, beer_type, description, abv, img) VALUES ('4', 'Goggle Fogger', 'German-Style Hefe-Weizen','A repeatedly award-winning wheat beer!', '5.4', 'a url');
