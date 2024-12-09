@@ -23,7 +23,7 @@ public class JdbcBreweryDao implements BreweryDao{
 
         List<Brewery> breweries = new ArrayList<>();
         String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
-                "\tFROM brewery";
+                "\tFROM brewery ORDER BY name ASC";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             while (results.next()) {

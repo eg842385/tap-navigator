@@ -16,7 +16,7 @@ INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) 
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Urban Artifact', '8', 'Reward the Curious.','1660 Blue Rock St', 'Cincinnati', 'Ohio', '45223');
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Great Lakes Brewing Company', '6', 'Much abrew about something.','2516 Market Ave', 'Cleveland', 'Ohio', '44113');
 INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Fat Heads Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Hi Wire Brewing', '5', 'Chill out man, have a beer!','4600 Beech Street, Suites 100 and 300', 'Norwood', 'Ohio', '45212');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Hi Wire Brewing', '5', 'Creating innovative craft beer born from tradition.','4600 Beech Street, Suites 100 and 300', 'Norwood', 'Ohio', '45212');
 
 
 
