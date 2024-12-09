@@ -6,7 +6,7 @@
         <div class="top">
             <input type="text" name="brewery-filter" class="filter" v-model="filterText"
                 placeholder="Filter Breweries by Name or Location">
-            <button @click.prevent="goToAddBreweryForm">Add a New Brewery!</button>
+            <button class="button" @click.prevent="goToAddBreweryForm">Add a New Brewery!</button>
         </div>
         <div class="container">
             <table class="brewerieslist">
@@ -90,6 +90,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     height: 100vh;
     background-image: url('@/assets/verticalbeer.jpg');
@@ -97,8 +98,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .container {
-    font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,12 +107,14 @@ body {
     padding: 20px;
     margin: 0 auto;
 }
+
 .brewerieslist th {
-    font-size: 25px;
-    background-color: peachpuff;
+    font-size: 30px;
+    background-color: rgba(228, 186, 61, 0.753);
     border: 1px solid black;
     padding: 1rem;
 }
+
 .title {
     font-size: 40px;
     display: flex;
@@ -119,12 +122,15 @@ body {
     align-items: center;
     padding: 10px;
 }
-.title h2{
+
+.title h2 {
     color: white;
 }
+
 .filter {
     width: 300px;
-    height: 30px;
+    height: 40px;
+    font-size: 17px;
 }
 
 .top {
@@ -136,13 +142,15 @@ body {
     margin: 0 70px;
 }
 
-button {
+.button {
     border-radius: 10px;
-    height: 30px;
+    height: 50px;
+    width: 200px;
+    font-size: 17px;
 }
 
 button:hover {
-    background-color: peachpuff;
+    background-color:  rgba(228, 186, 61, 0.753);
 }
 
 .name {
@@ -153,13 +161,14 @@ td {
     text-align: left;
     border: 1px solid black;
     padding: 10px;
+    font-size: 25px;
 }
 
 .brewerieslist {
     width: 100%;
     border-collapse: collapse;
     max-width: fit-content;
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
@@ -167,5 +176,5 @@ td {
 
 .brewerieslist tr:nth-child(even) {
     background-color: #f8f8f8;
-  }
+}
 </style>

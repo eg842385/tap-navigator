@@ -25,9 +25,11 @@ export default {
 .header {
   font-size: 20px;
   padding: 10px;
+  background-color: white;
 }
 .footer {
   text-align: center;
   align-self: baseline;
+  background-color: white;
 }
 </style>
