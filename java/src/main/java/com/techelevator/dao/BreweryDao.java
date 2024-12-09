@@ -10,6 +10,8 @@ public interface BreweryDao {
 
     Brewery addBrewery(Brewery brewery);
 
+    Brewery addBreweryFromAPI(Brewery brewery);
+
     Brewery getBreweryById(int id);
 
     Brewery getBreweryByName(String name);
