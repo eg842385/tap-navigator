@@ -1,45 +1,41 @@
 <template>
   <body>
-    <header>
-      <h1>BEER FINDER</h1>
+    <header class="header">
+      <h1>Hop To It: The Tap Navigator</h1>
     </header>
-
-    
-      <section id="left-panel">
-        <nav>
-          <ul>
-            <li><router-link to="/breweries">Breweries</router-link></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </section>
-      <section id="content">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </section>
-      <section id="right-panel">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </section>
-   
-
+    <section id="left-panel">
+      <nav>
+        <ul>
+          <li><router-link to="/breweries">Breweries</router-link></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section id="content">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section id="right-panel">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </section>
     <footer>
       <h1>FOOTER</h1>
     </footer>
@@ -50,13 +46,9 @@
 import { RouterLink } from 'vue-router';
 
 export default {
-    components: { RouterLink }
+  components: { RouterLink }
 };
 </script>
-
-
-
-
 
 <style scoped>
 body {
@@ -69,14 +61,12 @@ body {
     "footer footer footer footer";
   height: 100vh;
   margin: 0;
-    
-
-
 }
 
 ul {
-   list-style-type: none; padding-left: 0;
-  }
+  list-style-type: none;
+  padding-left: 0;
+}
 
 #left-panel {
   grid-area: left-panel;
@@ -87,29 +77,30 @@ ul {
 #right-panel {
   grid-area: right-panel;
   background-color: royalblue;
-  
+
 }
 
-header {
+.header {
   grid-area: header;
   background-color: peachpuff;
   text-align: center;
   width: 100vw;
-  
+  font-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
   grid-area: footer;
   background-color: blueviolet;
   justify-items: center;
-  
-  
 }
 
 #content {
   grid-area: content;
   background-color: brown;
-  
+
 
 }
 </style>
