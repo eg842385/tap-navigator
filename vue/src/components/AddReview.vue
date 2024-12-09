@@ -23,9 +23,20 @@
 
 <script>
 import ReviewService from '../services/ReviewService';
+import BreweryService from '../services/BreweryService';
 
 export default {
-
+    computed: {
+        currentUserId() {
+            return this.$store.state.user.id;
+        },
+        isAdmin() {
+            return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+        },
+        isCorrectBrewer() {
+            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
+        }
+    },
     data() {
         return {
             newReview: {
@@ -33,13 +44,20 @@ export default {
                 rating: '',
                 review: '',
                 userId: this.$store.state.user.id,
-            
-            }
+
+            },
+            brewery: {}
         };
+    },
+    created() {
+        this.getUserIdFromBrewery();
     },
     methods: {
         submitForm() {
-
+            if (this.isCorrectBrewer) {
+                alert("You cannot add a review to your own brewery.");
+                return;
+            };
             ReviewService.addReview(this.$route.params.id, this.$route.params.beerId, this.newReview)
                 .then(response => {
                     console.log('Response: ', response);
@@ -66,6 +84,16 @@ export default {
                 review: '',
                 userId: this.$store.state.user.id,
             };
+        },
+
+        getUserIdFromBrewery() {
+            BreweryService.getBreweryById(this.$route.params.id)
+                .then(response => {
+                    this.brewery = response.data;
+                })
+                .catch(error => {
+                    console.error('Error fetching brewery details:', error);
+                });
         },
     }
 }
