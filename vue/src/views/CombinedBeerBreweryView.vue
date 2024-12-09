@@ -20,6 +20,25 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.container {
+    background-image: url('@/assets/verticalbeer.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px; 
+}
+.brewery-details, .beer-list {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
 </style>

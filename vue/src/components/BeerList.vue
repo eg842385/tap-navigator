@@ -24,7 +24,7 @@
                 </tbody>
             </table>
             <div class="btn">
-                <button @click.prevent="goToAddBeerForm">Add a Beer</button>
+                <button @click.prevent="goToAddBeerForm" v-if="this.showIf">Add a Beer</button>
             </div>
         </div>
     </body>
@@ -32,6 +32,7 @@
 
 <script>
 import BeerService from '../services/BeerService';
+import BreweryService from '../services/BreweryService';
 
 export default {
     props: {
@@ -43,13 +44,26 @@ export default {
     data() {
         return {
             beers: [],
-            tableHeaders: ['Name ', 'Type']
+            brewery: {},
+            tableHeaders: ['Name ', 'Type'],
+            showIf: false
         }
     },
     async created() {
+        this.getBreweryDetails(this.id);
         this.getBeerDetails(this.id);
     },
-
+    computed: {
+        currentUserId() {
+            return this.$store.state.user.id;
+        },
+        isAdmin() {
+            return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
+        },
+        isCorrectBrewer() {
+            return this.$store.state.user.authorities[0].name === 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
+        }
+    },
     methods: {
         getBeerDetails(id) {
             BeerService.getBeersByBreweryId(id)
@@ -63,6 +77,21 @@ export default {
 
         goToAddBeerForm(){
             this.$router.push({name: 'addBeer', params: {id: this.id}});
+        },
+        getBreweryDetails(id) {
+            BreweryService.getBreweryById(id)
+                .then(response => {
+                    this.brewery = response.data;
+                    this.ifCurrentBrewer();
+                })
+                .catch(error => {
+                    console.error('Error fetching brewery details:', error);
+                });
+        },
+        ifCurrentBrewer(){
+            if(this.isAdmin || this.isCorrectBrewer){
+                this.showIf = true;
+            }
         }
     }
 }
@@ -93,6 +122,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    color:white;
 }
 button {
     border-radius: 10px;

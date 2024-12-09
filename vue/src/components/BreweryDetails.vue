@@ -22,7 +22,7 @@
                 </table>
             </div>
             <div class="button">
-                <button @click.prevent="goToUpdateBrewery">Update Brewery</button>
+                <button @click.prevent="goToUpdateBrewery" v-if="this.showIf" >Update Brewery</button>
             </div>
         </div>
     </body>
@@ -43,7 +43,18 @@ export default {
         return {
             brewery: {},
             tableHeaders: ['Description ', 'Location'],
-        
+            showIf: false
+        }
+    },
+    computed: {
+        currentUserId() {
+            return this.$store.state.user.id;
+        },
+        isAdmin() {
+            return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
+        },
+        isCorrectBrewer() {
+            return this.$store.state.user.authorities[0].name === 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
         }
     },
     async created() {
@@ -54,6 +65,7 @@ export default {
             BreweryService.getBreweryById(id)
                 .then(response => {
                     this.brewery = response.data;
+                    this.ifCurrentBrewer();
                 })
                 .catch(error => {
                     console.error('Error fetching brewery details:', error);
@@ -63,6 +75,12 @@ export default {
         goToUpdateBrewery() {
             this.$router.push({ name: 'updateBrewery', params: { id: this.$route.params.id } });
 
+        },
+
+        ifCurrentBrewer(){
+            if(this.isAdmin || this.isCorrectBrewer){
+                this.showIf = true;
+            }
         }
     }
 
@@ -104,6 +122,7 @@ td {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    color:white;
 }
 
 .brewerieslist th {

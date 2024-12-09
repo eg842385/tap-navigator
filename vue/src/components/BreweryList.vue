@@ -6,7 +6,7 @@
         <div class="top">
             <input type="text" name="brewery-filter" class="filter" v-model="filterText"
                 placeholder="Filter Breweries by Name or Location">
-            <button class="button" @click.prevent="goToAddBreweryForm">Add a New Brewery!</button>
+            <button class="button" @click.prevent="goToAddBreweryForm" v-if="this.showIf">Add a New Brewery!</button>
         </div>
         <div class="container">
             <table class="brewerieslist">
@@ -43,7 +43,8 @@ export default {
         return {
             breweries: [],
             filterText: '',
-            tableHeaders: ['Name', 'Description', 'Location']
+            tableHeaders: ['Name', 'Description', 'Location'],
+            showIf: false
         }
     },
     computed: {
@@ -58,13 +59,17 @@ export default {
                     brewery.city.toLowerCase().includes(search) ||
                     brewery.state.toLowerCase().includes(search));
             });
+        },
+        isAdmin() {
+            return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
         }
-
+        
     },
     async created() {
         try {
             const response = await axios.get('http://localhost:9000/breweries');
             this.breweries = response.data;
+            this.showIfAdmin();
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -75,8 +80,11 @@ export default {
             // console.log('Navigating to Add Brewery form');
             this.$router.push({ name: 'addBreweries' });
         },
-
-
+        showIfAdmin(){
+            if(this.isAdmin){
+                this.showIf = true;
+            }
+        }
     }
 
 }
