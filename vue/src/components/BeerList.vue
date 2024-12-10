@@ -122,14 +122,32 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color:white;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    background-color: rgba(141, 141, 141, 0.5);
+    width: fit-content;
+    justify-self: center;
+    border: 1px solid black;
+    margin-bottom: 10px;
 }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 button {
     border-radius: 10px;
     height: 50px;
     width: 170px;
     font-size: 17px;
 }
+
+
+.beerlist th:first-child{
+    border-top-left-radius: 10px;
+}
+
+.beerlist th:last-child{
+    border-top-right-radius: 10px;
+}
+
+
 .btn{
     display: flex;
     justify-content: flex-end;

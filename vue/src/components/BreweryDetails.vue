@@ -114,14 +114,35 @@ td {
     font-size: 25px;
 }
 
+
+.breweryDetails th:first-child{
+    border-top-left-radius: 10px;
+}
+
+.breweryDetails th:last-child{
+    border-top-right-radius: 10px;
+}
+
+
 .title {
     font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    color:white;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    background-color: rgba(141, 141, 141, 0.5);
+    width: fit-content;
+    justify-self: center;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    
 }
+
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 .brewerieslist th {
     font-size: 25px;

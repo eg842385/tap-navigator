@@ -107,21 +107,42 @@ export default {
 h2 {
     justify-content: center;
     font-size: 30px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+    
 }
+
+.container {
+    background-color: rgba(141, 141, 141, 0.5);    height: fit-content;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    line-height: 1px;
+    margin-top: 17px;
+}
+
+
+
 .text{
     display: flex;
     text-align: center;
+    
 
 }
 .text label {
     margin-top: 75px;
     font-size: 25px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
 }
 .text textarea {
     font-size: 18px;
 }
 .rating label {
     font-size: 25px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
 }
 .rating select {
     font-size: 23px;
@@ -131,12 +152,15 @@ h2 {
 .buttons{
     display: flex;
     justify-content: space-evenly;
+    padding-top: 10px;
+
 }
 button {
     border-radius: 10px;
     height: 50px;
     width: 150px;
     font-size: 17px;
+    
 }
 button:hover {
     background-color: rgba(228, 186, 61, 0.753);

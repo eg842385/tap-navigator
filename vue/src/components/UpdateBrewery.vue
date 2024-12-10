@@ -1,5 +1,7 @@
 <template>
-  <form @submit.prevent="updateBrewery" class="update-brewery">
+  
+  <div class="container">
+    <form @submit.prevent="updateBrewery" class="update-brewery">
     <h2>Update Brewery</h2>
     <div>
       <label for="name"> Brewery Name: </label>
@@ -10,9 +12,10 @@
       <input id="brewerId" type="text" v-model="brewery.userId" />
     </div>
     <div>
-      <label for="description">Description: </label>
-      <input id="description" type="text" v-model="brewery.description" />
-    </div>
+            <label for="description">Description: </label>
+            <textarea v-model="brewery.description" placeholder="Enter your description here" required></textarea>
+        </div>
+
     <div>
       <label for="address"> Address: </label>
       <input id="address" type="text" v-model="brewery.address" />
@@ -34,6 +37,9 @@
       Cancel
     </button>
   </form>
+
+  </div>
+ 
 </template>
 
 <script>
@@ -109,4 +115,66 @@ export default {
 
 
 
-<style scoped></style>
+<style scoped>
+
+form {
+    background-color: rgba(141, 141, 141, 0.5);
+    justify-self: center;
+    padding: 10px;
+    
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+h2 {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 30px;
+    justify-self: center;
+    padding-bottom: 20px;
+    
+}
+
+
+button {
+    border-radius: 10px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 25px;
+    width: 80px;
+    font-size: 15px;
+    
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    
+}
+
+div {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 20px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+input {
+  width: 100%;
+  padding: 5px;
+  
+  
+}
+
+
+
+</style>

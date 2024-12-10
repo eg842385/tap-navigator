@@ -1,5 +1,6 @@
 <template>
-    <form @submit.prevent="submitForm" class="addBeer">
+    <div class="container">
+        <form @submit.prevent="submitForm" class="addBeer">
         <h2>Add a New Beer!</h2>
         <div>
             <label for="beerName">Name: </label>
@@ -25,6 +26,8 @@
         <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Clear</button>
         <button class="btn btn-cancel" v-on:click="goBack" type="button">Go Back</button>
     </form>
+    </div>
+    
 </template>
 <script>
 import BeerService from '../services/BeerService';
@@ -120,4 +123,66 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+
+form {
+    background-color: rgba(141, 141, 141, 0.5);
+    justify-self: center;
+    padding: 10px;
+    
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+h2 {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 30px;
+    justify-self: center;
+    padding-bottom: 20px;
+    
+}
+
+
+button {
+    border-radius: 10px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 25px;
+    width: 80px;
+    font-size: 15px;
+    
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    
+}
+
+div {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 20px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+input {
+  width: 100%;
+  padding: 5px;
+  
+  
+}
+
+
+</style>

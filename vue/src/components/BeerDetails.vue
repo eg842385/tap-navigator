@@ -114,11 +114,25 @@ export default {
 .title {
     font-size: 40px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    color: white;
+    margin-top: 10px;
     margin-bottom: 10px;
+    background-color: rgba(141, 141, 141, 0.5);    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
+    width: fit-content;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 100px;
+    line-height: 1px;
+    justify-self: center;
+    
+    
+    
+
+    border: 1px solid black;
+    
 }
+
+
 
 .logo {
     display: flex;
@@ -144,6 +158,15 @@ img {
     font-size: 30px;
     background-color: rgba(228, 186, 61, 0.753);
     padding: 1rem;
+    
+}
+
+.beerDetails :first-child{
+    border-top-left-radius: 10px;
+}
+
+.beerDetails :last-child{
+    border-top-right-radius: 10px;
 }
 
 td {

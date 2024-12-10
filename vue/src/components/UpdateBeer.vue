@@ -113,4 +113,46 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+form {
+    background-color: rgba(141, 141, 141, 0.5);
+    
+    padding: 10px;
+}
+
+div {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 20px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+h2 {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 30px;
+    justify-self: center;
+    
+}
+
+button {
+    border-radius: 10px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 25px;
+    width: 80px;
+    font-size: 15px;
+    
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    
+}
+
+
+</style>

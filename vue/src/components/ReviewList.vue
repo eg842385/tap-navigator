@@ -67,9 +67,23 @@ export default {
 <style scoped>
 .avg{
     display: flex;
-    justify-content: center;
     font-size: 30px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    background-color: rgba(141, 141, 141, 0.5);
+    width: fit-content;
+    justify-self: center;
+    border: 1px solid black;
+    
 }
+
+h2 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
 ul li {
     list-style: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
