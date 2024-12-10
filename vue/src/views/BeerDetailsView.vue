@@ -1,19 +1,21 @@
 <template>
-    <div class="container">
-        <div class="details">
-            <beer-details :id="$route.params.id" :beerId="$route.params.beerId"></beer-details>
+    <body>
+        <div class="container">
+            <div class="details">
+                <beer-details :id="$route.params.id" :beerId="$route.params.beerId"></beer-details>
+            </div>
+            <div class="buttons">
+                <button class="button" @click.prevent="isShowForm = !isShowForm">
+                    {{ isShowForm ? 'Hide Update Form' : 'Update Beer' }}</button>
+                <update-beer :id="$route.params.id" :beerId="$route.params.beerId" v-if="isShowForm"></update-beer>
+                <delete-beer :id="$route.params.id" :beerId="$route.params.beerId"></delete-beer>
+            </div>
+            <div class="reviews">
+                <review-list class="list-reviews" :id="$route.params.id" :beerId="$route.params.beerId"></review-list>
+                <add-review class="add-review" :id="$route.params.id" :beerId="$route.params.beerId"></add-review>
+            </div>
         </div>
-        <div class="buttons">
-            <button class="button" @click.prevent="isShowForm = !isShowForm">
-                {{ isShowForm ? 'Hide Update Form' : 'Update Beer' }}</button>
-            <update-beer :id="$route.params.id" :beerId="$route.params.beerId" v-if="isShowForm"></update-beer>
-            <delete-beer :id="$route.params.id" :beerId="$route.params.beerId"></delete-beer>
-        </div>
-        <div class="reviews">
-            <review-list class="list-reviews" :id="$route.params.id" :beerId="$route.params.beerId"></review-list>
-            <add-review class="add-review" :id="$route.params.id" :beerId="$route.params.beerId"></add-review>
-        </div>
-    </div>
+    </body>
 </template>
 
 <script>
@@ -38,7 +40,17 @@ export default {
 }
 </script>
 <style scoped>
-
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background-color: peachpuff;
+}
 .details{
     margin-bottom: 30px;
 }
