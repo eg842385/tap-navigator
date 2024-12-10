@@ -74,7 +74,10 @@ button:hover {
     align-content: center;
 }
 .list-reviews {
-width: 1100px;
+width: 50%;
 }
-
+.add-reviews{
+    width:50%;
+}
+ 
 </style>

@@ -16,12 +16,13 @@
                     <td>{{beer.beerType}}</td>
                     <td>{{ beer.description }}</td>
                     <td>{{beer.abv}}</td>
-                    <td>{{beer.img}}</td>
                 </tr>
             </tbody>
         </table>
+        <div class="logo">
+            <img src="@/assets/star.png" alt="breweryLogo" class="image">
+        </div>
     </div>
-    
 </template>
 
 <script>
@@ -54,7 +55,7 @@ export default {
         return {
             beer: {},
             brewery: {},
-            tableHeaders: ['Type ', 'Description', 'ABV', 'PIC']
+            tableHeaders: ['Type ', 'Description', 'ABV']
         }
     },
     async created() {
@@ -104,7 +105,6 @@ export default {
     }
 }
 </script>
-
 <style scoped>
 .title {
     font-size: 40px;

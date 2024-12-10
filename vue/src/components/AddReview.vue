@@ -15,7 +15,7 @@
             </div>
             <div class="text">
                 <label for="review">Review: </label>
-                <textarea name="review" id="review" cols="70" rows="10" v-model="newReview.review" required></textarea>
+                <textarea name="review" id="review" cols="50" rows="10" v-model="newReview.review" required></textarea>
             </div>
             <div class="buttons">
                 <button class="btn btn-submit">Submit</button>
@@ -113,21 +113,16 @@ h2 {
     text-align: center;
 
 }
-
 .text label {
     margin-top: 75px;
     font-size: 25px;
 }
-
 .text textarea {
     font-size: 18px;
 }
-
-
 .rating label {
     font-size: 25px;
 }
-
 .rating select {
     font-size: 23px;
     margin-left: 3px;
@@ -143,7 +138,7 @@ button {
     width: 150px;
     font-size: 17px;
 }
-
 button:hover {
     background-color: rgba(228, 186, 61, 0.753);
-}</style>
+}
+</style>
