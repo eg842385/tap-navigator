@@ -95,7 +95,6 @@ export default {
 .breweryDetails th {
     font-size: 30px;
     background-color: rgba(228, 186, 61, 0.753);
-    
     padding: 1rem;
 }
 
@@ -111,7 +110,6 @@ export default {
 
 td {
     text-align: left;
-
     padding: 30px;
     font-size: 25px;
 }

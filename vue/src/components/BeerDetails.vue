@@ -1,4 +1,7 @@
 <template>
+    <div class="title">
+        <h2>{{ beer.beerName }}</h2>
+    </div>
     <div> 
         <table class="beerDetails">
             <thead>
@@ -10,7 +13,6 @@
             </thead>
             <tbody>
                 <tr class="details">
-                    <td>{{ beer.beerName }}</td>
                     <td>{{beer.beerType}}</td>
                     <td>{{ beer.description }}</td>
                     <td>{{beer.abv}}</td>
@@ -52,7 +54,7 @@ export default {
         return {
             beer: {},
             brewery: {},
-            tableHeaders: ['Name ', 'Type ', 'Description', 'ABV', 'PIC']
+            tableHeaders: ['Type ', 'Description', 'ABV', 'PIC']
         }
     },
     async created() {
@@ -103,4 +105,32 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.title {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.beerDetails {
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 70%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+.beerDetails th {
+    font-size: 30px;
+    background-color: rgba(228, 186, 61, 0.753);
+    padding: 1rem;
+}
+
+td {
+    text-align: left;
+    padding: 30px;
+    font-size: 25px;
+}
+</style>

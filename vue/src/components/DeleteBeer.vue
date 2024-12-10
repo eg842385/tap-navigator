@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click.prevent="deleteBeer" >Delete Beer</button>
+        <button class="button" @click.prevent="deleteBeer" >Delete Beer</button>
     </div>
 </template>
 
@@ -72,4 +72,15 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.button {
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    font-size: 17px;
+}
+
+button:hover {
+    background-color:  rgba(228, 186, 61, 0.753);
+}
+</style>

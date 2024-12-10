@@ -1,24 +1,28 @@
 <template>
-    <form @submit.prevent="submitForm" class="addReview">
-        <h2>Write a Review</h2>
-        <div>
-            <label for="rating">Rating: </label>
-            <select name="" id="" v-model.number="newReview.rating" required>Rating:
-                <option value="" disabled selected>--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-        </div>
-        <div>
-            <label for="review">Review: </label>
-            <textarea name="review" id="review" cols="30" rows="10" v-model="newReview.review" required></textarea>
-        </div>
-        <button class="btn btn-submit">Submit</button>
-        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
-    </form>
+    <div class="container">
+        <form @submit.prevent="submitForm" class="addReview">
+            <h2>Write a Review</h2>
+            <div class="rating">
+                <label for="rating">Rating: </label>
+                <select name="" id="" v-model.number="newReview.rating" required>Rating:
+                    <option value="" disabled selected>--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="text">
+                <label for="review">Review: </label>
+                <textarea name="review" id="review" cols="70" rows="10" v-model="newReview.review" required></textarea>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-submit">Submit</button>
+                <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -99,4 +103,47 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+h2 {
+    justify-content: center;
+    font-size: 30px;
+}
+.text{
+    display: flex;
+    text-align: center;
+
+}
+
+.text label {
+    margin-top: 75px;
+    font-size: 25px;
+}
+
+.text textarea {
+    font-size: 18px;
+}
+
+
+.rating label {
+    font-size: 25px;
+}
+
+.rating select {
+    font-size: 23px;
+    margin-left: 3px;
+    margin-bottom: 20px;
+}
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+button {
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    font-size: 17px;
+}
+
+button:hover {
+    background-color: rgba(228, 186, 61, 0.753);
+}</style>
