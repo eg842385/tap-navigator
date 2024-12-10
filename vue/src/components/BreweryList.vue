@@ -24,7 +24,7 @@
                                 {{ brewery.breweryName }}
                             </router-link>
                         </td>
-                        <td class="description">{{ brewery.description }}</td>
+                        
                         <td class="location">{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{
                             brewery.zipcode }}
                         </td>
@@ -43,7 +43,7 @@ export default {
         return {
             breweries: [],
             filterText: '',
-            tableHeaders: ['Name', 'Description', 'Location'],
+            tableHeaders: ['Name', 'Location'],
             showIf: false
         }
     },
@@ -99,13 +99,7 @@ body {
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    background-image: url('@/assets/verticalbeer.jpg');
-    background-size: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 
 .container {
     display: flex;
@@ -180,6 +174,7 @@ td {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin: 0 auto;
+    opacity: 85%;
 }
 
 .brewerieslist tr:nth-child(even) {

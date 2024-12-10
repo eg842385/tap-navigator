@@ -22,6 +22,7 @@ export default {
 
 <style scoped>
 .container {
+    background-attachment: fixed;
     background-image: url('@/assets/verticalbeer.jpg'); 
     background-size: cover; 
     background-position: center; 

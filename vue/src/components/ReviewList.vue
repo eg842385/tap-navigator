@@ -64,7 +64,7 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
 .avg{
     display: flex;
     justify-content: center;

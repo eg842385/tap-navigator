@@ -13,4 +13,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+body {
+    background-attachment: fixed;
+    
+    background-image: url('@/assets/verticalbeer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+</style>

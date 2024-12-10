@@ -1,7 +1,12 @@
 <template>
+    
+     <div class="logo">
+            <img :src= "brewery.img" alt="breweryLogo" class="image">
+        </div>
     <div class="title">
         <h2>{{ beer.beerName }}</h2>
     </div>
+    
     <div> 
         <table class="beerDetails">
             <thead>
@@ -16,12 +21,11 @@
                     <td>{{beer.beerType}}</td>
                     <td>{{ beer.description }}</td>
                     <td>{{beer.abv}}</td>
+                    
                 </tr>
             </tbody>
         </table>
-        <div class="logo">
-            <img src="@/assets/star.png" alt="breweryLogo" class="image">
-        </div>
+        
     </div>
 </template>
 
@@ -55,7 +59,8 @@ export default {
         return {
             beer: {},
             brewery: {},
-            tableHeaders: ['Type ', 'Description', 'ABV']
+            tableHeaders: ['Type ', 'Description', 'ABV'],
+            imgUrl: '{{brewery.img}}'
         }
     },
     async created() {
@@ -111,8 +116,21 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    
+    margin-bottom: 10px;
 }
+
+.logo {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+img {
+    margin-top: 30px;
+}
+
 .beerDetails {
     width: 100%;
     border-collapse: collapse;
