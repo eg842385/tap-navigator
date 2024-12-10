@@ -1,37 +1,40 @@
 <template>
-    <form @submit.prevent="submitForm" class="addBrewery">
-        <h2>Add a New Brewery!</h2>
-        <div>
-            <label for="name">Brewery Name: </label>
-            <input id="name" type="text" v-model="newBrewery.breweryName" required>
-        </div>
-        <div>
-            <label for="brewerId">Brewer ID: </label>
-            <input id="brewerId" type="number" v-model="newBrewery.userId" required>
-        </div>
-        <div>
-            <label for="address">Address: </label>
-            <input id="address" type="text" v-model="newBrewery.address" required>
-        </div>
-        <div>
-            <label for="city">City: </label>
-            <input id="city" type="text" v-model="newBrewery.city" required>
-        </div>
-        <div>
-            <label for="state">State: </label>
-            <input id="state" type="text" v-model="newBrewery.state" required>
-        </div>
-        <div>
-            <label for="zipcode">Zipcode: </label>
-            <input id="zipcode" type="number" v-model="newBrewery.zipcode" required>
-        </div>
-        <div>
-            <label for="description">Description: </label>
-            <textarea v-model="newBrewery.description" placeholder="Enter your description here" required></textarea>
-        </div>
-        <button class="btn btn-submit">Submit</button>
-        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
-    </form>
+    <div class="container">
+        <form @submit.prevent="submitForm" class="addBrewery">
+            <h2>Add a New Brewery!</h2>
+            <div>
+                <label for="name">Brewery Name: </label>
+                <input id="name" type="text" v-model="newBrewery.breweryName" required>
+            </div>
+            <div>
+                <label for="brewerId">Brewer ID: </label>
+                <input id="brewerId" type="number" v-model="newBrewery.userId" required>
+            </div>
+            <div>
+                <label for="address">Address: </label>
+                <input id="address" type="text" v-model="newBrewery.address" required>
+            </div>
+            <div>
+                <label for="city">City: </label>
+                <input id="city" type="text" v-model="newBrewery.city" required>
+            </div>
+            <div>
+                <label for="state">State: </label>
+                <input id="state" type="text" v-model="newBrewery.state" required>
+            </div>
+            <div>
+                <label for="zipcode">Zipcode: </label>
+                <input id="zipcode" type="number" v-model="newBrewery.zipcode" required>
+            </div>
+            <div>
+                <label for="description">Description: </label>
+                <textarea v-model="newBrewery.description" placeholder="Enter your description here" required></textarea>
+            </div>
+            <button class="btn btn-submit">Submit</button>
+            <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Cancel</button>
+        </form>
+
+    </div>
 </template>
 
 <script>
@@ -109,9 +112,66 @@ export default {
 
 </script>
 
-<style>
-.addBrewery h2 {
-    text-align: center;
-    margin-bottom: 20px;
+<style scoped>
+
+form {
+    background-color: rgba(141, 141, 141, 0.5);
+    justify-self: center;
+    padding: 10px;
+    
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+h2 {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 30px;
+    justify-self: center;
+    padding-bottom: 20px;
+    
+}
+
+
+button {
+    border-radius: 10px;
+    
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 25px;
+    width: 80px;
+    font-size: 15px;
+    
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    
+}
+
+div {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    font-size: 20px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+input {
+  width: 100%;
+  padding: 5px;
+  
+  
+}
+
+
+
 </style>
