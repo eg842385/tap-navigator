@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.PostConstruct;
+
 @Service
 public class BreweryApiService {
 
@@ -22,6 +24,11 @@ public class BreweryApiService {
     public BreweryApiService(RestTemplate restTemplate, BreweryDao breweryDao) {
         this.restTemplate = restTemplate;
         this.breweryDao = breweryDao;
+    }
+
+    @PostConstruct
+    public void initialize(){
+        fetchAndSaveBreweries();
     }
 
 
@@ -121,21 +128,5 @@ public class BreweryApiService {
         return brewery;
     }
 
-//    private Brewery mapApiToModel(BreweryApiResponseDto apiBrewery) {
-//        Brewery brewery = new Brewery();
-//
-//        brewery.setBreweryName(apiBrewery.getName());
-//        brewery.setDescription(apiBrewery.getBreweryType());
-//        brewery.setAddress(apiBrewery.getStreet());
-//        brewery.setCity(apiBrewery.getCity());
-//        brewery.setState(apiBrewery.getStateProvince());
-//
-//        try {
-//            brewery.setZipcode(Integer.parseInt(apiBrewery.getPostalCode()));
-//        } catch (NumberFormatException e) {
-//            brewery.setZipcode(0);
-//        }
-//        return brewery;
-//    }
 
 }
