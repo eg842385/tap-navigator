@@ -26,34 +26,45 @@ public class BreweryApiService {
 
 
     public void fetchAndSaveBreweries() {
-        String url = "https://api.openbrewerydb.org/v1/breweries";
-        System.out.println("Fetching from URL: " + url);
+        int page = 1;
+        int perPage = 50;
+        boolean hasMorePages = true;
+
+        while(hasMorePages){
+            String url = "https://api.openbrewerydb.org/v1/breweries?by_state=ohio&page=" + page + "&per_page=" + perPage;
+            System.out.println("Fetching from URL: " + url);
 
 
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
-        System.out.println("HTTP Status: " + response.getStatusCode());
-        System.out.println("Response Headers: " + response.getHeaders());
+            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+            System.out.println("HTTP Status: " + response.getStatusCode());
+            System.out.println("Response Headers: " + response.getHeaders());
 
-        String jsonResponse = response.getBody();
-        System.out.println("Raw JSON Response: " + jsonResponse);
+            String jsonResponse = response.getBody();
+            System.out.println("Raw JSON Response: " + jsonResponse);
 
-        if (response.getStatusCode() == HttpStatus.OK && jsonResponse != null && !jsonResponse.isEmpty()) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            try {
+            if (response.getStatusCode() == HttpStatus.OK && jsonResponse != null && !jsonResponse.isEmpty()) {
+                ObjectMapper objectMapper = new ObjectMapper();
+                try {
 
-                BreweryApiResponseDto[] breweries = objectMapper.readValue(jsonResponse, BreweryApiResponseDto[].class);
-                System.out.println("Mapped Breweries: " + breweries.length);
+                    BreweryApiResponseDto[] breweries = objectMapper.readValue(jsonResponse, BreweryApiResponseDto[].class);
+                    System.out.println("Mapped Breweries: " + breweries.length);
 
-                for (BreweryApiResponseDto apiBrewery : breweries) {
-                    System.out.println("Brewery Name: " + apiBrewery.getName());
-                    Brewery brewery = mapApiToModel(apiBrewery);
-                    breweryDao.addBreweryFromAPI(brewery);
+                    for (BreweryApiResponseDto apiBrewery : breweries) {
+                        System.out.println("Brewery Name: " + apiBrewery.getName());
+                        Brewery brewery = mapApiToModel(apiBrewery);
+                        breweryDao.addBreweryFromAPI(brewery);
+                    }
+
+                    hasMorePages = breweries.length == perPage;
+                    page++;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    hasMorePages = false;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else {
+                System.out.println("Failed to fetch data from API or response is empty.");
+                hasMorePages = false;
             }
-        } else {
-            System.out.println("Failed to fetch data from API or response is empty.");
         }
     }
 
@@ -98,8 +109,9 @@ public class BreweryApiService {
         String postalCode = apiBrewery.getPostalCode();
         int zipcode = 0;
         if (postalCode != null && !postalCode.trim().isEmpty()) {
+            String appendedZipcode = postalCode.substring(0,5);
             try {
-                zipcode = Integer.parseInt(postalCode);
+                zipcode = Integer.parseInt(appendedZipcode);
             } catch (NumberFormatException e) {
                 zipcode = 0;
             }

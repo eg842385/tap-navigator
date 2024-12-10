@@ -42,7 +42,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery addBrewery(Brewery brewery) {
         Brewery newBrewery = null; 
-        String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode) values (?, (LOWER(TRIM(?))), ?, ?, ?, ?, ?) RETURNING brewery_id";
+        String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode) values (?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
         try{
             int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode());
             newBrewery = getBreweryById(newBreweryId);
@@ -57,7 +57,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery addBreweryFromAPI(Brewery brewery) {
         Brewery newBrewery = null;
-        String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode) values (?, (LOWER(TRIM(?))), ?, ?, ?, ?, ?) RETURNING brewery_id";
+        String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode) values (?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
         try{
             int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, 3, brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode());
             newBrewery = getBreweryById(newBreweryId);
@@ -90,7 +90,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public Brewery getBreweryByName(String name) {
         Brewery brewery = null;
         String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
-                "\tFROM brewery WHERE name = (LOWER(TRIM(?)));";
+                "\tFROM brewery WHERE name ILIKE ?;";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
             if (results.next()){
