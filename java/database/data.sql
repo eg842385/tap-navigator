@@ -12,11 +12,11 @@ INSERT INTO users (username,password_hash,role) VALUES ('syd','$2a$08$UkVvwpULis
 
 
 
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Hoof Hearted', '4', 'Get it?','300 County Rd 26', 'Merengo', 'Ohio', '43334', 'no img provided by Brewer');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Urban Artifact', '8', 'Reward the Curious.','1660 Blue Rock St', 'Cincinnati', 'Ohio', '45223', 'no img provided by Brewer');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Great Lakes Brewing Company', '6', 'Much abrew about something.','2516 Market Ave', 'Cleveland', 'Ohio', '44113', 'https://i0.wp.com/ohiocraftbeer.org/wp-content/uploads/2019/02/GreatLakes.BreweryLogo2022.png?fit=440%2C330&ssl=1');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Fat Heads Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130', 'no img provided by Brewer');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Hi Wire Brewing', '5', 'Creating innovative craft beer born from tradition.','4600 Beech Street, Suites 100 and 300', 'Norwood', 'Ohio', '45212', 'no img provided by Brewer');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Hoof Hearted', '4', 'Get it?','300 County Rd 26', 'Merengo', 'Ohio', '43334', 'https://images.squarespace-cdn.com/content/v1/530fa82ae4b059649e4b5d3c/1394423334322-L2RLZT2CSZEFC4S7XDTI/HHB_ROUND_flat_RGB.jpg?format=1500w');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Urban Artifact', '8', 'Reward the Curious.','1660 Blue Rock St', 'Cincinnati', 'Ohio', '45223', 'https://lh3.googleusercontent.com/-Y9_l8nZMQh-dUZfRpaQ2TNzsJQE5VvDBjGKUjqMhGNm_K8dcDNlq4iqTQJz9_CQoDCpa-yPH7C9VdEvcoeRYxrSWhnYcA=s750');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Great Lakes Brewing Company', '6', 'Much abrew about something.','2516 Market Ave', 'Cleveland', 'Ohio', '44113', 'https://www.odessabrewfest.com/sites/default/files/glbc-logo_0.png');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Fat Heads Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130', 'https://upload.wikimedia.org/wikipedia/en/1/1c/Fat_Head_Brewery_Logo.png');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Hi Wire Brewing', '5', 'Creating innovative craft beer born from tradition.','4600 Beech Street, Suites 100 and 300', 'Norwood', 'Ohio', '45212', 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300,h_100/https://hiwirebrewing.com/wp-content/uploads/2023/07/hiwire-brewing_logo_780x330.png');
 
 
 
