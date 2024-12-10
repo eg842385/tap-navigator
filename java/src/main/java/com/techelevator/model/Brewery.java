@@ -11,6 +11,8 @@ public class Brewery {
     private String state;
     private int zipcode;
 
+    private String img;
+
     public Brewery(int breweryId, int userId, String breweryName, String description, String address, String city, String state, int zipcode) {
         this.breweryId = breweryId;
         this.userId = userId;
@@ -88,5 +90,13 @@ public class Brewery {
 
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }

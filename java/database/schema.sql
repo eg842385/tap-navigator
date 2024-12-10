@@ -23,6 +23,7 @@ CREATE TABLE brewery (
 	city varchar(50) NOT NULL,
 	state varchar(50) NOT NULL,
 	zipcode int NOT NULL,
+	img varchar(20000) NULL,
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id),
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
@@ -34,7 +35,7 @@ CREATE TABLE beer (
     beer_type varchar(50) NOT NULL,
     description text NOT NULL,
     abv NUMERIC(4, 2) NOT NULL,
-    img varchar(200) NOT NULL,
+    img varchar(20000) NOT NULL,
     CONSTRAINT PK_beer PRIMARY KEY (beer_id),
     CONSTRAINT FK_brewery FOREIGN KEY (brewery_id) REFERENCES brewery (brewery_id)
 );

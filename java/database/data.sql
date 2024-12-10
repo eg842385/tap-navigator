@@ -12,11 +12,11 @@ INSERT INTO users (username,password_hash,role) VALUES ('syd','$2a$08$UkVvwpULis
 
 
 
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Hoof Hearted', '4', 'Get it?','300 County Rd 26', 'Merengo', 'Ohio', '43334');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Urban Artifact', '8', 'Reward the Curious.','1660 Blue Rock St', 'Cincinnati', 'Ohio', '45223');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Great Lakes Brewing Company', '6', 'Much abrew about something.','2516 Market Ave', 'Cleveland', 'Ohio', '44113');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Fat Heads Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130');
-INSERT INTO brewery (name, user_id, description, address, city, state, zipcode) VALUES ('Hi Wire Brewing', '5', 'Creating innovative craft beer born from tradition.','4600 Beech Street, Suites 100 and 300', 'Norwood', 'Ohio', '45212');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Hoof Hearted', '4', 'Get it?','300 County Rd 26', 'Merengo', 'Ohio', '43334', 'no img provided by Brewer');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Urban Artifact', '8', 'Reward the Curious.','1660 Blue Rock St', 'Cincinnati', 'Ohio', '45223', 'no img provided by Brewer');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Great Lakes Brewing Company', '6', 'Much abrew about something.','2516 Market Ave', 'Cleveland', 'Ohio', '44113', 'https://i0.wp.com/ohiocraftbeer.org/wp-content/uploads/2019/02/GreatLakes.BreweryLogo2022.png?fit=440%2C330&ssl=1');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Fat Heads Brewery', '7', 'Chill out man, have a beer!','18741 Sheldon Rd.', 'Middleburg Heights', 'Ohio', '44130', 'no img provided by Brewer');
+INSERT INTO brewery (name, user_id, description, address, city, state, zipcode, img) VALUES ('Hi Wire Brewing', '5', 'Creating innovative craft beer born from tradition.','4600 Beech Street, Suites 100 and 300', 'Norwood', 'Ohio', '45212', 'no img provided by Brewer');
 
 
 

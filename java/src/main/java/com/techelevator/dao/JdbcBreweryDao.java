@@ -22,7 +22,7 @@ public class JdbcBreweryDao implements BreweryDao{
     public List<Brewery> getBreweries() {
 
         List<Brewery> breweries = new ArrayList<>();
-        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode, img\n" +
                 "\tFROM brewery ORDER BY name ASC";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -42,7 +42,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery addBrewery(Brewery brewery) {
         Brewery newBrewery = null; 
-        String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode) values (?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
+        String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode, img) values (?, ?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
         try{
             int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode());
             newBrewery = getBreweryById(newBreweryId);
@@ -58,9 +58,9 @@ public class JdbcBreweryDao implements BreweryDao{
     public Brewery addBreweryFromAPI(Brewery brewery) {
         if(getBreweryByName(brewery.getBreweryName())== null){
             Brewery newBrewery = null;
-            String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode) values (?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
+            String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode, img) values (?, ?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
             try{
-                int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, 3, brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode());
+                int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, 3, brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(), "no image provided by Brewer");
                 newBrewery = getBreweryById(newBreweryId);
             } catch (CannotGetJdbcConnectionException e) {
                 throw new DaoException("Unable to connect to server or database", e);
@@ -77,7 +77,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery getBreweryById(int id) {
         Brewery brewery = null;
-        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode, img\n" +
                 "\tFROM brewery WHERE brewery_id = ?;";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
@@ -94,7 +94,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery getBreweryByName(String name) {
         Brewery brewery = null;
-        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode, img\n" +
                 "\tFROM brewery WHERE name ILIKE ?;";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
@@ -111,7 +111,7 @@ public class JdbcBreweryDao implements BreweryDao{
     @Override
     public Brewery searchBreweryByName(String name) {
         Brewery brewery = null;
-        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode\n" +
+        String sql = "SELECT brewery_id, name, user_id, description, address, city, state, zipcode, img\n" +
                 "\tFROM brewery WHERE name ILIKE '%?%';";
         try{
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
@@ -129,11 +129,11 @@ public class JdbcBreweryDao implements BreweryDao{
     public boolean updateBrewery(Brewery brewery) {
 
         String sql =" UPDATE brewery\n" +
-                "\tSET user_id=?, name=?, description=?, address=?, city=?, state=?, zipcode=?\n" +
+                "\tSET user_id=?, name=?, description=?, address=?, city=?, state=?, zipcode=?, img=?\n" +
                 "\tWHERE brewery_id=?;";
                 try {
                    int rowsUpdated = jdbcTemplate.update(sql,
-                           brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(),brewery.getBreweryId());
+                           brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(),brewery.getBreweryId(), brewery.getImg());
                     return rowsUpdated >0;
 
                 } catch (CannotGetJdbcConnectionException e) {
@@ -160,6 +160,7 @@ public class JdbcBreweryDao implements BreweryDao{
         brewery.setCity(rs.getString("city"));
         brewery.setState(rs.getString("state"));
         brewery.setZipcode(rs.getInt("zipcode"));
+        brewery.setImg(rs.getString("img"));
         return brewery;
     }
     
