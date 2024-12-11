@@ -63,14 +63,14 @@ import breweryService from "../services/BreweryService";
 export default {
   computed: {
     currentUserId() {
-      return this.$store.state.user.id;
+      return this.$store.state.user?.id;
     },
     isAdmin() {
-      return this.$store.state.user.authorities[0].name == "ROLE_ADMIN";
+      return this.$store.state.user?.authorities?.[0]?.name == "ROLE_ADMIN";
     },
     isCorrectBrewer() {
       return (
-        this.$store.state.user.authorities[0].name == "ROLE_BREWER" &&
+        this.$store.state.user?.authorities?.[0]?.name == "ROLE_BREWER" &&
         this.currentUserId == this.brewery.userId
       );
     },

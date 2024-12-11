@@ -8,7 +8,7 @@
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"> Logout</router-link>
       </div>
       <div class="title">
-        <p>Hop To It: The TapNavigator</p>
+        <p><b>Hop To It: The TapNavigator</b></p>
       </div>
     </header>
     <router-view />
@@ -44,7 +44,7 @@ export default {
   justify-content: flex-start;
   text-align: right;
   top: 0;
-
+  
 }
 .footer {
   position: fixed;

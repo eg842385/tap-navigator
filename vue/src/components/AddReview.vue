@@ -32,13 +32,13 @@ import BreweryService from '../services/BreweryService';
 export default {
     computed: {
         currentUserId() {
-            return this.$store.state.user.id;
+            return this.$store.state.user?.id || null;
         },
         isAdmin() {
-            return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
+            return this.$store.state.user?.authorities?.[0]?.name == 'ROLE_ADMIN';
         },
         isCorrectBrewer() {
-            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
+            return this.$store.state.user?.authorities?.[0]?.name == 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
         }
     },
     data() {
@@ -47,8 +47,7 @@ export default {
                 beerId: this.$route.params.beerId,
                 rating: '',
                 review: '',
-                userId: this.$store.state.user.id,
-
+                userId: this.$store.state.user?.id,
             },
             brewery: {}
         };
@@ -60,6 +59,9 @@ export default {
         submitForm() {
             if (this.isCorrectBrewer) {
                 alert("You cannot add a review to your own brewery.");
+                return;
+            } else if (this.currentUserId == null){
+                alert("You must login to add a review.");
                 return;
             };
             ReviewService.addReview(this.$route.params.id, this.$route.params.beerId, this.newReview)
@@ -86,7 +88,7 @@ export default {
                 beerId: this.$route.params.beerId,
                 rating: '',
                 review: '',
-                userId: this.$store.state.user.id,
+                userId: this.currentUserId,
             };
         },
 
@@ -109,7 +111,6 @@ h2 {
     font-size: 30px;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
-    
 }
 
 .container {

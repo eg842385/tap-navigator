@@ -18,7 +18,6 @@
           required
         ></textarea>
       </div>
-
       <div>
         <label for="address"> Address: </label>
         <input id="address" type="text" v-model="brewery.address" />

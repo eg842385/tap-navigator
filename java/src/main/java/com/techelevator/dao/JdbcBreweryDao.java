@@ -44,7 +44,7 @@ public class JdbcBreweryDao implements BreweryDao{
         Brewery newBrewery = null; 
         String insertBrewerySql = "INSERT INTO brewery (user_id, name, description, address, city, state, zipcode, img) values (?, ?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
         try{
-            int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode());
+            int newBreweryId = jdbcTemplate.queryForObject(insertBrewerySql, int.class, brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(), brewery.getImg());
             newBrewery = getBreweryById(newBreweryId);
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);

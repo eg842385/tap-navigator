@@ -5,7 +5,6 @@
     <div class="title">
         <h2>{{ beer.beerName }}</h2>
     </div>
-
     <div>
         <table class="beerDetails">
             <thead>
@@ -20,11 +19,9 @@
                     <td>{{ beer.beerType }}</td>
                     <td>{{ beer.description }}</td>
                     <td>{{ beer.abv }}</td>
-
                 </tr>
             </tbody>
         </table>
-
     </div>
 </template>
 

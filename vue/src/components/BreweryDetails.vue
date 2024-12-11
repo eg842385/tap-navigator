@@ -1,6 +1,9 @@
 <template>
     <body>
         <div class="container">
+            <div class="logo" v-if="brewery.img">
+                <img :src="brewery.img" alt="" class="image">
+            </div>
             <div class="title">
                 <h2>{{ brewery.breweryName }}</h2>
             </div>
@@ -86,9 +89,18 @@ export default {
 </script>
 
 <style scoped>
-.container{
- 
-    margin: 0 0 0 0;
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    max-width: 300px; 
+    max-height: 300px;
+    padding: 20px;
+    width: auto; 
+    height: auto;
 }
 .breweryDetails th {
     font-size: 30px;
@@ -111,7 +123,6 @@ td {
     padding: 30px;
     font-size: 25px;
 }
-
 
 .breweryDetails th:first-child{
     border-top-left-radius: 10px;
@@ -137,16 +148,6 @@ td {
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-.brewerieslist th {
-    font-size: 25px;
-    background-color: rgba(228, 186, 61, 0.753);
-    padding: 1rem;
-}
-
-.brewerieslist {
-    padding: 1rem;
-}
 
 button {
     border-radius: 10px;
