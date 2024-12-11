@@ -133,7 +133,7 @@ public class JdbcBreweryDao implements BreweryDao{
                 "\tWHERE brewery_id=?;";
                 try {
                    int rowsUpdated = jdbcTemplate.update(sql,
-                           brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(),brewery.getBreweryId(), brewery.getImg());
+                           brewery.getUserId(), brewery.getBreweryName(), brewery.getDescription(), brewery.getAddress(), brewery.getCity(), brewery.getState(), brewery.getZipcode(),brewery.getImg(),brewery.getBreweryId());
                     return rowsUpdated >0;
 
                 } catch (CannotGetJdbcConnectionException e) {
