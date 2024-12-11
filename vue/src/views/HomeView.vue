@@ -43,18 +43,17 @@ export default {
 body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100vh 2fr;
+  grid-template-rows: 100vh 1fr;
   grid-template-areas:
     "pic pic "
     "about-us function";
-  height: 100vh;
   margin: 0;
 }
 
 #function {
   grid-area: function;
-  background-color: white;
-  justify-items: left;
+  background-color: rgb(13, 40, 18);
+
 }
 
 #about-us {

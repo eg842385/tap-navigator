@@ -89,7 +89,6 @@ export default {
 </script>
 
 <style scoped>
-
 .logo {
     display: flex;
     justify-content: center;

@@ -13,10 +13,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body {
     background-attachment: fixed;
-    
     background-image: url('@/assets/verticalbeer.jpg');
     background-size: cover;
     background-position: center;
