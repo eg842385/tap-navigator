@@ -35,7 +35,7 @@
           />
         </div>
         <div class="form-input-group">
-          Account Type:
+          <label for="accountType">Account Type</label>
           <select name="account-type" id="" v-model="user.role">
             <option value="" disabled selected>--</option>
             <option value="BREWER">Brewer</option>
@@ -43,7 +43,7 @@
           </select>
         </div>
         <button type="submit">Create Account</button>
-        <p>
+        <p class="create">
           <router-link v-bind:to="{ name: 'login' }"
             >Already have an account? Log in.</router-link
           >
@@ -107,6 +107,10 @@ export default {
 </script>
 
 <style scoped>
+p {
+font-size: 18px;
+}
+
 html,
 body {
   height: 100%;
@@ -121,6 +125,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .form-input-group {
@@ -128,19 +133,25 @@ body {
 }
 input {
   width: 100%;
-  padding: 7px;
+  padding: 10px;
   border-radius: 10px;
+  border: 1px solid #000;
+  box-sizing: border-box;
 }
 
 form {
   border: 1px solid black;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 3rem;
   background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 label {
   margin-right: 0.5rem;
+  font-size: 20px;
 }
 
 .container {
@@ -148,23 +159,31 @@ label {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 20px;
 }
 
 button {
+  display: block;
+  width: 100%;
   border-radius: 10px;
-  margin-top: 5px;
-  margin-left: 5px;
-  height: 35px;
-  width: 150px;
+  margin-top: 1rem;
+  padding: 10px;
   font-size: 15px;
   cursor: pointer;
+  color: black;
+  font-weight: bold;
 }
+
 button:hover {
   background-color: rgba(228, 186, 61, 0.753);
 }
 
 select{
-  border-radius: 5px;
-  height: 25px;
+  border-radius: 10px;
+  height: 37px;
+  width: 63%
+}
+option {
+  font-size: 18px;
 }
 </style>

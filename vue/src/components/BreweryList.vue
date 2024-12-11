@@ -5,7 +5,7 @@
         </div>
         <div class="top">
             <input type="text" name="brewery-filter" class="filter" v-model="filterText"
-                placeholder="Filter Breweries by Name or Location">
+                placeholder="Search Breweries by Name or Location">
             <button class="button" @click.prevent="goToAddBreweryForm" v-if="this.showIf">Add a New Brewery!</button>
         </div>
         <div class="container">
@@ -98,9 +98,6 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
-
-
 .container {
     display: flex;
     align-items: center;
@@ -109,41 +106,46 @@ body {
     padding: 20px;
     margin: 0 auto;
 }
-
 .brewerieslist th {
     font-size: 30px;
     background-color: rgba(228, 186, 61, 0.753);
     border: 1px solid black;
     padding: 1rem;
 }
-
 .title {
     font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    background-color: rgba(141, 141, 141, 0.5);
+    width: fit-content;
+    justify-self: center;
+    border: 1px solid black;
+    margin: 50px;
 }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 .title h2 {
     color: white;
 }
-
 .filter {
-    width: 300px;
+    width: 350px;
     height: 40px;
     font-size: 17px;
     cursor: pointer;
     border-radius: 10px;
+    text-align: center;
 }
-
 .top {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
+    max-width: 90%;
     max-height: 40px;
-    margin: 0 70px;
+    margin: 0 auto;
 }
 
 .button {
@@ -153,22 +155,18 @@ body {
     font-size: 17px;
     cursor: pointer;
 }
-
 button:hover {
     background-color:  rgba(228, 186, 61, 0.753);
 }
-
 .name {
     text-align: center;
 }
-
 td {
     text-align: left;
     border: 1px solid black;
     padding: 10px;
     font-size: 25px;
 }
-
 .brewerieslist {
     width: 100%;
     border-collapse: collapse;
@@ -179,7 +177,6 @@ td {
     margin: 0 auto;
     opacity: 85%;
 }
-
 .brewerieslist tr:nth-child(even) {
     background-color: #f8f8f8;
 }

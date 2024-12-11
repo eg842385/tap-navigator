@@ -5,7 +5,7 @@
                 <h2>What's Currently On Tap</h2>
             </div>
             
-            <table class="beerlist">
+            <table class="beerlist" v-if="this.moreThan0Beer">
                 <thead>
                     <tr>
                         <th v-for="(header, index) in tableHeaders" :key="index">
@@ -23,6 +23,11 @@
                     </tr>
                 </tbody>
             </table>
+            <div v-show="!this.moreThan0Beer">
+                <p>
+                    Currently Brewing something good - check back later!
+                </p>
+            </div>
             <div class="btn">
                 <button @click.prevent="goToAddBeerForm" v-if="this.showIf">Add a Beer</button>
             </div>
@@ -45,8 +50,9 @@ export default {
         return {
             beers: [],
             brewery: {},
-            tableHeaders: ['Name ', 'Type'],
-            showIf: false
+            tableHeaders: ['Name', 'Type'],
+            showIf: false,
+            moreThan0Beer: false,
         }
     },
     async created() {
@@ -69,12 +75,12 @@ export default {
             BeerService.getBeersByBreweryId(id)
                 .then(response => {
                     this.beers = response.data;
+                    this.areThereBeers();
                 })
                 .catch(error => {
                     console.error('Error fetching beer details:', error);
                 });
         },
-
         goToAddBeerForm(){
             this.$router.push({name: 'addBeer', params: {id: this.id}});
         },
@@ -83,6 +89,7 @@ export default {
                 .then(response => {
                     this.brewery = response.data;
                     this.ifCurrentBrewer();
+                    this.areThereBeers();
                 })
                 .catch(error => {
                     console.error('Error fetching brewery details:', error);
@@ -92,6 +99,11 @@ export default {
             if(this.isAdmin || this.isCorrectBrewer){
                 this.showIf = true;
             }
+        },
+        areThereBeers(){
+            if(this.beers.length > 0){
+                this.moreThan0Beer = true;
+            }else { this.moreThan0Beer = false; }
         }
     }
 }
@@ -105,16 +117,21 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     height: 100vh;
 }
-
 .beerlist th {
     font-size: 30px;
     background-color: rgba(228, 186, 61, 0.753);
- 
     padding: 1rem;
+}
+p {
+    color:white;
+    font-size: 25px;
+    justify-self: center;
+    padding: 10px;
+    background-color: rgba(219, 196, 127, 0.784);
+    border-radius: 10px;
 }
 .titleTap {
     font-size: 30px;

@@ -30,8 +30,6 @@
 
 <script>
 import BreweryService from '../services/BreweryService';
-
-
 export default {
     props: {
         id: {
@@ -123,7 +121,6 @@ td {
     border-top-right-radius: 10px;
 }
 
-
 .title {
     font-size: 40px;
     display: flex;
@@ -137,10 +134,7 @@ td {
     justify-self: center;
     border: 1px solid black;
     margin-bottom: 10px;
-    
 }
-
-
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 

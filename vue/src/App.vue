@@ -37,7 +37,7 @@ export default {
   align-items:center;
   font-size: 20px;
   padding: 5px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.631);
 }
 .title{
   display: flex;
