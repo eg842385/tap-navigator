@@ -136,6 +136,7 @@ button {
     height: 50px;
     width: 170px;
     font-size: 17px;
+    cursor: pointer;
 }
 
 
@@ -151,6 +152,7 @@ button {
 .btn{
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
 }
 button:hover {
     background-color:  rgba(228, 186, 61, 0.753);

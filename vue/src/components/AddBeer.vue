@@ -130,6 +130,7 @@ form {
     background-color: rgba(141, 141, 141, 0.5);
     justify-self: center;
     padding: 10px;
+    width: 400px
     
 }
 
@@ -154,14 +155,18 @@ h2 {
 
 button {
     border-radius: 10px;
-    
     margin-top: 10px;
     margin-left: 10px;
-    height: 25px;
+    height: 35px;
     width: 80px;
     font-size: 15px;
-    
+    cursor: pointer;
 }
+
+button:hover {
+    background-color: rgba(228, 186, 61, 0.753);
+}
+
 
 label {
     display: block;
@@ -179,9 +184,15 @@ div {
 
 input {
   width: 100%;
-  padding: 5px;
+  padding: 10px;
+  border-radius: 10px;
   
-  
+}
+textarea{
+  width: 100%;
+  padding: 10px; 
+  border-radius: 10px;
+
 }
 
 

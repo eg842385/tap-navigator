@@ -58,12 +58,14 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .button {
     border-radius: 10px;
     height: 50px;
     width: 150px;
     font-size: 17px;
+    cursor: pointer;
 }
 button:hover {
     background-color: rgba(228, 186, 61, 0.753);

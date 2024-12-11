@@ -133,6 +133,8 @@ body {
     width: 300px;
     height: 40px;
     font-size: 17px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
 .top {
@@ -149,6 +151,7 @@ body {
     height: 50px;
     width: 200px;
     font-size: 17px;
+    cursor: pointer;
 }
 
 button:hover {

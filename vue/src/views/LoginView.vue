@@ -11,15 +11,28 @@
         </div>
         <div class="form-input-group">
           <label for="username">Username</label>
-          <input type="text" id="username" v-model="user.username" required autofocus />
+          <input
+            type="text"
+            id="username"
+            v-model="user.username"
+            required
+            autofocus
+          />
         </div>
         <div class="form-input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" v-model="user.password" required />
+          <input
+            type="password"
+            id="password"
+            v-model="user.password"
+            required
+          />
         </div>
         <button type="submit">Sign in</button>
         <p>
-          <router-link v-bind:to="{ name: 'register' }">Need an account? Sign up.</router-link>
+          <router-link v-bind:to="{ name: 'register' }"
+            >Need an account? Sign up.</router-link
+          >
         </p>
       </form>
     </div>
@@ -35,31 +48,31 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -74,7 +87,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('@/assets/barrels.jpg');
+  background-image: url("@/assets/barrels.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,12 +96,18 @@ body {
 .form-input-group {
   margin-bottom: 1rem;
 }
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
 
 form {
   border: 1px solid black;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 3rem;
   background-color: rgba(255, 255, 255, 0.8);
+  width: 300px
 }
 
 label {
@@ -100,5 +119,18 @@ label {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+button {
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 35px;
+  width: 80px;
+  font-size: 15px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(228, 186, 61, 0.753);
 }
 </style>

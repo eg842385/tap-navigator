@@ -117,8 +117,9 @@ export default {
 
 form {
     background-color: rgba(141, 141, 141, 0.5);
+    width: 300px;
+    padding: 10px 10px
     
-    padding: 10px;
 }
 
 div {
@@ -138,13 +139,18 @@ h2 {
 
 button {
     border-radius: 10px;
-    
     margin-top: 10px;
     margin-left: 10px;
-    height: 25px;
+    height: 35px;
     width: 80px;
     font-size: 15px;
+    cursor: pointer;
     
+}
+
+button:hover {
+    background-color: rgba(228, 186, 61, 0.753);
+   
 }
 
 label {
@@ -153,6 +159,19 @@ label {
     margin-bottom: 5px;
     
 }
+input {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+   
+    
+}
 
+textarea{
+  width: 90%;
+  padding: 10px; 
+  border-radius: 10px;
+ 
+}
 
 </style>

@@ -123,12 +123,10 @@ h2 {
 }
 
 
-
 .text{
     display: flex;
     text-align: center;
     
-
 }
 .text label {
     margin-top: 75px;
@@ -138,6 +136,7 @@ h2 {
 }
 .text textarea {
     font-size: 18px;
+    border-radius: 10px;
 }
 .rating label {
     font-size: 25px;
@@ -148,11 +147,15 @@ h2 {
     font-size: 23px;
     margin-left: 3px;
     margin-bottom: 20px;
+    cursor: pointer;
+    width: 15%;
+    border-radius: 10px;
 }
 .buttons{
     display: flex;
     justify-content: space-evenly;
     padding-top: 10px;
+    cursor: pointer;
 
 }
 button {
@@ -160,6 +163,7 @@ button {
     height: 50px;
     width: 150px;
     font-size: 17px;
+    cursor: pointer;
     
 }
 button:hover {

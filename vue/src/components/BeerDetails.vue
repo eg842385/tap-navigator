@@ -124,10 +124,6 @@ export default {
     height: 100px;
     line-height: 1px;
     justify-self: center;
-    
-    
-    
-
     border: 1px solid black;
     
 }
@@ -137,7 +133,6 @@ export default {
 .logo {
     display: flex;
     justify-content: center;
-    
     
 }
 

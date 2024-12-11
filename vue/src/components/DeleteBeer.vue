@@ -78,6 +78,7 @@ export default {
     height: 50px;
     width: 150px;
     font-size: 17px;
+    cursor: pointer;
 }
 
 button:hover {

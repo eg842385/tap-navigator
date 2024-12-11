@@ -163,6 +163,7 @@ button {
 .button{
     display: flex;
     justify-content: flex-end;
+    cursor: pointer;
 }
 button:hover {
     background-color:  rgba(228, 186, 61, 0.753);
@@ -170,6 +171,7 @@ button:hover {
 
 button {
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .details {
