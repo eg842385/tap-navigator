@@ -120,7 +120,7 @@ form {
   background-color: rgba(141, 141, 141, 0.5);
   justify-self: center;
   padding: 10px;
-  width: 350px
+  width: 400px;
 }
 
 .container {
@@ -163,7 +163,7 @@ button:hover {
 .label,
 label {
   display: block;
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 div {
@@ -174,7 +174,7 @@ div {
 }
 input,
 textarea {
-  width: 90%;
+  width: 92%;
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 10px;

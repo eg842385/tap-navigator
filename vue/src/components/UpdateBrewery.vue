@@ -34,10 +34,12 @@
         <label for="zipcode"> Zipcode: </label>
         <input id="zipcode" type="text" v-model="brewery.zipcode" />
       </div>
-      <button class="btn btn-submit">Submit</button>
-      <button class="btn btn-cancel" v-on:click="cancelForm" type="button">
-        Cancel
-      </button>
+      <div class="button-container">
+        <button class="btn btn-submit">Submit</button>
+        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">
+          Cancel
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -121,9 +123,6 @@ export default {
 };
 </script>
 
-
-
-
 <style scoped>
 form {
   background-color: rgba(141, 141, 141, 0.5);
@@ -133,10 +132,15 @@ form {
 }
 
 .container {
+  height: 100%;
+  background-attachment: fixed;
+  background-image: url('@/assets/verticalbeer.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  place-items: center;
   height: 100vh;
   padding: 20px;
 }
@@ -154,8 +158,8 @@ button {
   border-radius: 10px;
   margin-top: 10px;
   margin-left: 10px;
-  height: 35px;
-  width: 80px;
+  height: 40px;
+  width: 120px;
   font-size: 15px;
   cursor: pointer;
 }
@@ -167,7 +171,7 @@ button:hover {
 label {
   display: block;
   font-size: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 div {
@@ -182,14 +186,20 @@ div {
   box-sizing: border-box;
 }
 
-input {
-  width: 100%;
-  padding: 5px;
-  border-radius: 10px;
-}
+input,
 textarea {
   width: 100%;
   padding: 10px;
+  margin-bottom: 15px;
   border-radius: 10px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

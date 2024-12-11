@@ -1,33 +1,32 @@
 <template>
     <div class="container">
         <form @submit.prevent="submitForm" class="addBeer">
-        <h2>Add a New Beer!</h2>
-        <div>
-            <label for="beerName">Name: </label>
-            <input id="beerName" type="text" v-model="newBeer.beerName" required>
-        </div>
-        <div>
-            <label for="beerType">Type: </label>
-            <input id="beerType" type="text" v-model="newBeer.beerType" required>
-        </div>
-        <div>
-            <label for="description">Description: </label>
-            <textarea v-model="newBeer.description" placeholder="Enter your description here" required></textarea>
-        </div>
-        <div>
-            <label for="abv">ABV: </label>
-            <input id="abv" type="text" v-model="newBeer.abv" required>
-        </div>
-        <div>
-            <label for="img">Img: </label>
-            <input id="img" type="text" v-model="newBeer.img">
-        </div>
-        <button class="btn btn-submit">Submit</button>
-        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Clear</button>
-        <button class="btn btn-cancel" v-on:click="goBack" type="button">Go Back</button>
-    </form>
+            <h2>Add a New Beer!</h2>
+            <div>
+                <label for="beerName">Name: </label>
+                <input id="beerName" type="text" v-model="newBeer.beerName" required>
+            </div>
+            <div>
+                <label for="beerType">Type: </label>
+                <input id="beerType" type="text" v-model="newBeer.beerType" required>
+            </div>
+            <div>
+                <label for="description">Description: </label>
+                <textarea v-model="newBeer.description" placeholder="Enter your description here" required></textarea>
+            </div>
+            <div>
+                <label for="abv">ABV: </label>
+                <input id="abv" type="text" v-model="newBeer.abv" required>
+            </div>
+            <div>
+                <label for="img">Img: </label>
+                <input id="img" type="text" v-model="newBeer.img">
+            </div>
+            <button class="btn btn-submit">Submit</button>
+            <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Clear</button>
+            <button class="btn btn-cancel" v-on:click="goBack" type="button">Go Back</button>
+        </form>
     </div>
-    
 </template>
 <script>
 import BeerService from '../services/BeerService';
@@ -42,8 +41,8 @@ export default {
             return this.$store.state.user.authorities[0].name == 'ROLE_ADMIN';
         },
         isCorrectBrewer() {
-            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' 
-            && (this.currentUserId == this.brewery.userId);
+            return this.$store.state.user.authorities[0].name == 'ROLE_BREWER'
+                && (this.currentUserId == this.brewery.userId);
         }
     },
     data() {
@@ -132,17 +131,22 @@ form {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  place-items: center;
-  height: 100vh;
-  padding: 20px;
+    height: 100%;
+    background-attachment: fixed;
+    background-image: url('@/assets/verticalbeer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
 }
 
 h2 {
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-size: 30px;
     justify-self: center;
     padding-bottom: 20px;
@@ -167,28 +171,31 @@ label {
     display: block;
     font-size: 20px;
     margin-bottom: 5px;
-    
+
 }
 
 div {
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-size: 20px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  
-}
-textarea{
-  width: 100%;
-  padding: 10px; 
-  border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
 
 }
 
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
 
-</style>
+}</style>

@@ -51,13 +51,13 @@ export default {
             return this.$store.state.user.authorities[0].name == 'ROLE_BREWER' && (this.currentUserId == this.brewery.userId);
         }
     },
-    created() { 
-        this.getUserIdFromBrewery(); 
+    created() {
+        this.getUserIdFromBrewery();
     },
     methods: {
         canUpdateBeer() {
-            if (this.isAdmin || this.isCorrectBrewer){
-                this.canSeeForm=true;
+            if (this.isAdmin || this.isCorrectBrewer) {
+                this.canSeeForm = true;
             }
         },
         getUserIdFromBrewery() {
@@ -82,9 +82,18 @@ body {
     box-sizing: border-box;
 }
 
+.container {
+    height: 100%;
+    background-attachment: fixed;
+    background-image: url('@/assets/verticalbeer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 body {
     min-height: 100vh;
-    background-color: peachpuff;
+    background-color: black;
 }
 
 .details {

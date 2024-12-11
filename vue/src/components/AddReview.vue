@@ -112,10 +112,15 @@ h2 {
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; 
 }
-
-.container {
-    background-color: rgba(141, 141, 141, 0.5);    height: fit-content;
+.addReview {
+    background-color: rgba(141, 141, 141, 0.5);
     border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+.container {  
+    height: fit-content;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
