@@ -43,34 +43,39 @@ export default {
 body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100vh 1fr;
+  grid-template-rows: 100vh auto;
   grid-template-areas:
-    "pic pic "
+    "pic pic"
     "about-us function";
   margin: 0;
 }
 
 #function {
   grid-area: function;
-  background-color: rgb(13, 40, 18);
-
+  background-color: #FFFFE0;
+  color: #FFFFE0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #about-us {
   grid-area: about-us;
   background-color: rgb(13, 40, 18);
-  justify-items: left;
-  height: fit-content;
   color: #FFFFE0;
   padding: 0px 20px 20px 20px;
+
 }
 
 #about-us h3 {
-  font-size:35px;
+  font-size: 30px;
+  text-align: center;
 }
 
-p{
-  font-size: 20px;
+p {
+  font-size: 26px;
+  text-align: center;
 }
 
 .title {
@@ -92,4 +97,6 @@ img {
   height: 500px;
   justify-content: flex-start;
   margin-left: 150px;
-}</style>
+}
+
+</style>

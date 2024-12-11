@@ -124,14 +124,11 @@ export default {
 </script>
 
 <style scoped>
-
-
 form {
     background-color: rgba(141, 141, 141, 0.5);
     justify-self: center;
     padding: 10px;
     width: 400px
-    
 }
 
 .container {
@@ -149,9 +146,7 @@ h2 {
     font-size: 30px;
     justify-self: center;
     padding-bottom: 20px;
-    
 }
-
 
 button {
     border-radius: 10px;

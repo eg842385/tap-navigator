@@ -4,21 +4,11 @@
       <h2>Add a New Brewery!</h2>
       <div>
         <label for="name">Brewery Name: </label>
-        <input
-          id="name"
-          type="text"
-          v-model="newBrewery.breweryName"
-          required
-        />
+        <input id="name" type="text" v-model="newBrewery.breweryName" required />
       </div>
       <div>
         <label for="brewerId">Brewer ID: </label>
-        <input
-          id="brewerId"
-          type="number"
-          v-model="newBrewery.userId"
-          required
-        />
+        <input id="brewerId" type="number" v-model="newBrewery.userId" required />
       </div>
       <div>
         <label for="address">Address: </label>
@@ -34,25 +24,18 @@
       </div>
       <div>
         <label for="zipcode">Zipcode: </label>
-        <input
-          id="zipcode"
-          type="number"
-          v-model="newBrewery.zipcode"
-          required
-        />
+        <input id="zipcode" type="number" v-model="newBrewery.zipcode" required />
       </div>
       <div>
         <label for="description">Description: </label>
-        <textarea
-          v-model="newBrewery.description"
-          placeholder="Enter your description here"
-          required
-        ></textarea>
+        <textarea v-model="newBrewery.description" placeholder="Enter your description here" required></textarea>
       </div>
-      <button class="btn btn-submit">Submit</button>
-      <button class="btn btn-cancel" v-on:click="cancelForm" type="button">
-        Cancel
-      </button>
+      <div class="button-container">
+        <button class="btn btn-submit">Submit</button>
+        <button class="btn btn-cancel" v-on:click="cancelForm" type="button">
+          Cancel
+        </button>
+      </div>
     </form>
   </div>
 </template>
@@ -119,7 +102,6 @@ export default {
 
     cancelForm() {
       this.newBrewery = {
-        // id: '',
         breweryName: "",
         userId: "",
         description: "",
@@ -142,10 +124,15 @@ form {
 }
 
 .container {
+  height: 100%;
+  background-attachment: fixed;
+  background-image: url('@/assets/verticalbeer.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  place-items: center;
   height: 100vh;
   padding: 20px;
 }
@@ -163,42 +150,43 @@ button {
   border-radius: 10px;
   margin-top: 10px;
   margin-left: 10px;
-  height: 30px;
-  width: 80px;
+  height: 40px;
+  width: 120px;
   font-size: 15px;
   cursor: pointer;
 }
+
 button:hover {
   background-color: rgba(228, 186, 61, 0.753);
 }
 
+.label,
 label {
   display: block;
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
-
 div {
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
   font-size: 20px;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-input {
-  width: 100%;
+input,
+textarea {
+  width: 90%;
   padding: 10px;
+  margin-bottom: 15px;
   border-radius: 10px;
+  font-size: 16px;
 }
 
 textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
+  resize: vertical;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
 }
 </style>

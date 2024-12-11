@@ -24,7 +24,7 @@
                                 {{ brewery.breweryName }}
                             </router-link>
                         </td>
-                        
+
                         <td class="location">{{ brewery.address }} {{ brewery.city }}, {{ brewery.state }} {{
                             brewery.zipcode }}
                         </td>
@@ -63,7 +63,7 @@ export default {
         isAdmin() {
             return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
         }
-        
+
     },
     async created() {
         try {
@@ -80,8 +80,8 @@ export default {
             // console.log('Navigating to Add Brewery form');
             this.$router.push({ name: 'addBreweries' });
         },
-        showIfAdmin(){
-            if(this.isAdmin){
+        showIfAdmin() {
+            if (this.isAdmin) {
                 this.showIf = true;
             }
         }
@@ -98,38 +98,58 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-attachment: fixed;
+    background-image: url('@/assets/verticalbeer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+}
+
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     max-width: 90%;
     padding: 20px;
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
+
 .brewerieslist th {
     font-size: 30px;
     background-color: rgba(228, 186, 61, 0.753);
     border: 1px solid black;
     padding: 1rem;
 }
+
 .title {
     font-size: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     background-color: rgba(141, 141, 141, 0.5);
     width: fit-content;
     justify-self: center;
     border: 1px solid black;
-    margin: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    top: 20px;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+
 .title h2 {
     color: white;
+    margin: 20px;
 }
+
 .filter {
     width: 350px;
     height: 40px;
@@ -138,6 +158,7 @@ body {
     border-radius: 10px;
     text-align: center;
 }
+
 .top {
     display: flex;
     justify-content: space-evenly;
@@ -155,18 +176,22 @@ body {
     font-size: 17px;
     cursor: pointer;
 }
+
 button:hover {
-    background-color:  rgba(228, 186, 61, 0.753);
+    background-color: rgba(228, 186, 61, 0.753);
 }
+
 .name {
     text-align: center;
 }
+
 td {
     text-align: left;
     border: 1px solid black;
     padding: 10px;
     font-size: 25px;
 }
+
 .brewerieslist {
     width: 100%;
     border-collapse: collapse;
@@ -177,7 +202,7 @@ td {
     margin: 0 auto;
     opacity: 85%;
 }
+
 .brewerieslist tr:nth-child(even) {
     background-color: #f8f8f8;
-}
-</style>
+}</style>

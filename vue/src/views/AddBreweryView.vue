@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import addBrewery from '../components/AddBrewery.vue';
+import addBrewery from '../components/addBrewery.vue';
 
 export default {
     components: {

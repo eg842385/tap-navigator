@@ -1,18 +1,15 @@
 <template>
-    <body>
-        <div class="random-brewery" v-if="brewery">
-            <h2>Featured Breweries</h2>
-            <div class="logo">
-                <img :src="brewery.img || defaultImg" alt="" class="image">
-            </div>
-            <h3>{{ brewery.breweryName }}</h3>
-            <p>{{ brewery.address }}, {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</p>
-            <button @click="highlightRandomBrewery">Highlight Another Brewery</button>
+    <div class="random-brewery" v-if="brewery">
+        <h2>Featured Breweries</h2>
+        <div class="logo">
+            <img :src="brewery.img" alt="" class="image">
         </div>
-    </body>
+        <h3>{{ brewery.breweryName }}</h3>
+        <p>{{ brewery.address }}, {{ brewery.city }}, {{ brewery.state }} {{ brewery.zipcode }}</p>
+        <button class="button" @click="highlightRandomBrewery">Highlight Another Brewery</button>
+    </div>
 </template>
   
-
 <script>
 import BreweryService from '../services/BreweryService';
 
@@ -21,7 +18,6 @@ export default {
         return {
             breweries: [],
             brewery: {},
-            defaultImg: ('@/assets/pouring.jpg')
         };
     },
     methods: {
@@ -40,39 +36,51 @@ export default {
                 this.brewery = this.breweries[randomIndex];
             }
         },
-        getBreweryImage() {
-            if (this.brewery && this.brewery.img) {
-                return this.brewery.img;
-            }
-        },
         startAutoHighlight() {
-            this.intervalId = setInterval(this.highlightRandomBrewery, 10000); 
+            this.intervalId = setInterval(this.highlightRandomBrewery, 10000);
         },
         stopAutoHighlight() {
             if (this.intervalId) {
-                clearInterval(this.intervalId); 
+                clearInterval(this.intervalId);
                 this.intervalId = null;
             }
         },
     },
     created() {
         this.fetchBreweries();
-        this.startAutoHighlight(); 
+        this.startAutoHighlight();
     },
     beforeDestroy() {
-        this.stopAutoHighlight(); 
+        this.stopAutoHighlight();
     }
 };
 </script>
 
 <style scoped>
-
 .random-brewery {
-    border-collapse: collapse;
-    background-color: #FFFFE0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: rgb(13, 40, 18);
-    
+    text-align: center;
 }
-
+h2{
+    font-size: 30px;
+}
+img {
+    height: 350px;
+}
+h3{
+    font-size: 26px;
+}
+p{
+    font-size: 20px;
+}
+.button {
+    border-radius: 8px;
+    height: 50px;
+    width: 270px;
+    font-size: 17px;
+    cursor: pointer;
+}
+button:hover {
+    background-color:  rgba(228, 186, 61, 0.753);
+}
 </style>

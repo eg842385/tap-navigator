@@ -123,7 +123,6 @@ h2 {
     margin-top: 17px;
 }
 
-
 .text{
     display: flex;
     text-align: center;

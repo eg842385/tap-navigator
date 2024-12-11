@@ -125,7 +125,7 @@ public class BreweryApiService {
         }
         brewery.setZipcode(zipcode);
 
-
+        brewery.setImg("https://images.pexels.com/photos/274194/pexels-photo-274194.jpeg?auto=compress&cs=tinysrgb&w=600");
 
         return brewery;
     }
