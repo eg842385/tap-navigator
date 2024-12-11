@@ -89,11 +89,11 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 body {
     min-height: 100vh;
-    background-color: black;
 }
 
 .details {
