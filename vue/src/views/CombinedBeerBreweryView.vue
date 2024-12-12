@@ -23,9 +23,9 @@ export default {
 <style scoped>
 .container {
     background-attachment: fixed;
-    background-image: url('@/assets/verticalbeer.jpg'); 
-    background-size: cover; 
-    background-position: center; 
+    background-image: url('@/assets/beers.jpg');
+    background-size: cover;
+    background-position: 50% 80%;
     background-repeat: no-repeat; 
     min-height: 100vh; 
     display: flex;

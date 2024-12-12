@@ -18,10 +18,10 @@
                 <label for="abv">ABV: </label>
                 <input id="abv" type="text" v-model="newBeer.abv" required>
             </div>
-            <div>
+            <!-- <div>
                 <label for="img">Img: </label>
                 <input id="img" type="text" v-model="newBeer.img">
-            </div>
+            </div> -->
             <button class="btn btn-submit">Submit</button>
             <button class="btn btn-cancel" v-on:click="cancelForm" type="button">Clear</button>
             <button class="btn btn-cancel" v-on:click="goBack" type="button">Go Back</button>

@@ -110,6 +110,7 @@ export default {
         state: "",
         zipcode: "",
       };
+      this.$router.push({ name: "listBreweries" });
     },
   },
 };

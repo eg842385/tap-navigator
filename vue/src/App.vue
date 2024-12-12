@@ -7,13 +7,14 @@
         <router-link v-bind:to="{ name: 'login' }">Login</router-link>&nbsp;|&nbsp;
         <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''"> Logout</router-link>
       </div>
+  
       <div class="title">
         <p><b>Hop To It: The TapNavigator</b></p>
       </div>
     </header>
     <router-view />
     <footer class="footer">
-      © 2024 - {{currentYear}} Hop To It: The Tap Navigator. All Rights Reserved.
+      © {{currentYear}} Hop To It: The Tap Navigator. All Rights Reserved.
     </footer>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
 }
 </script>
 <style scoped>
+
 .links{
   display: flex;
   justify-content: space-between;
@@ -41,8 +43,8 @@ export default {
 }
 .title{
   display: flex;
-  justify-content: flex-start;
-  text-align: right;
+  justify-content: flex-end;
+  text-align: center;
   top: 0;
 }
 .footer {

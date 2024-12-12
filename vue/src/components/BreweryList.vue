@@ -105,9 +105,9 @@ body {
     align-items: center;
     justify-content: flex-start;
     background-attachment: fixed;
-    background-image: url('@/assets/verticalbeer.jpg');
+    background-image: url('@/assets/beers.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: 50% 80%;
     background-repeat: no-repeat;
     min-height: 100vh;
     width: 100%;
