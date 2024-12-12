@@ -17,10 +17,6 @@
             <label for="abv">ABV: </label>
             <input id="abv" type="text" v-model="updatedBeer.abv" required>
         </div>
-        <div>
-            <label for="img">Img: </label>
-            <input id="img" type="text" v-model="updatedBeer.img">
-        </div>
         <button class="btn btn-submit">Submit</button>
     </form>
 </template>
@@ -100,7 +96,6 @@ export default {
                         alert('Beer details updated successfully!');
                         this.isFormShowing = false;
                         this.$router.go(0);
-                        // this.$router.push({name: 'beerDetails', params: {id: this.$route.params.id, beerId: this.$route.params.beerId}});
                     })
                     .catch((error) => {
                         console.error('Error updating beer: ', error);
@@ -114,13 +109,12 @@ export default {
 </script>
 
 <style scoped>
-
 form {
     background-color: rgba(141, 141, 141, 0.5);
-    width: 300px;
-    padding: 10px 10px
-    
-}
+    justify-self: center;
+    padding: 10px;
+    width: 400px;
+  }
 
 div {
     color: white;
@@ -145,33 +139,28 @@ button {
     width: 80px;
     font-size: 15px;
     cursor: pointer;
-    
 }
 
 button:hover {
     background-color: rgba(228, 186, 61, 0.753);
-   
 }
 
 label {
     display: block;
-    font-size: 18px;
-    margin-bottom: 5px;
-    
+    font-size: 20px;
+    margin-bottom: 10px;
 }
-input {
-    width: 90%;
-    padding: 10px;
-    border-radius: 10px;
-   
-    
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
-textarea{
-  width: 90%;
-  padding: 10px; 
-  border-radius: 10px;
- 
+textarea {
+  resize: vertical;
 }
 
 </style>

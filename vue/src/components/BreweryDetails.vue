@@ -118,7 +118,7 @@ img {
 }
 
 td {
-    text-align: left;
+    text-align: center;
     padding: 30px;
     font-size: 25px;
 }

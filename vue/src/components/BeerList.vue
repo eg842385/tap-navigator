@@ -156,7 +156,6 @@ button {
     cursor: pointer;
 }
 
-
 .beerlist th:first-child{
     border-top-left-radius: 10px;
 }
@@ -164,7 +163,6 @@ button {
 .beerlist th:last-child{
     border-top-right-radius: 10px;
 }
-
 
 .btn{
     display: flex;
@@ -189,6 +187,7 @@ button:hover {
 }
 
 td {
+    text-align: center;
     font-size:25px;
     padding: 20px;
 }
