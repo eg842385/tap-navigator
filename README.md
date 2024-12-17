@@ -34,6 +34,7 @@ Tools and Technologies
 - PostgreSQL and Java: Used as the back-end technologies.
 
 Installation Requirements
+
 To run the Tap Navigator, make sure you have the following installed:
 - Node.jsand npm (for managing dependencies and running the Vue.jsapplication)
 
