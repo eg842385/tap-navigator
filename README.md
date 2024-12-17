@@ -31,3 +31,16 @@ Tools and Technologies
 
 - Git: For version control and collaboration.
 
+- PostgreSQL and Java: Used as the back-end technologies.
+
+Installation Requirements
+To run the Tap Navigator, make sure you have the following installed:
+- Node.jsand npm (for managing dependencies and running the Vue.jsapplication)
+
+- PostgreSQL (for the database)
+
+- Java Development Kit (JDK) (for the back-end services)
+
+- Git (for version control)
+
+
