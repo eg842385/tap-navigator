@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Beer;
-import org.springframework.boot.autoconfigure.quartz.QuartzProperties;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -102,7 +101,7 @@ public class JdbcBeerDao implements BeerDao{
     }
 
     @Override
-    public Boolean deleteBeerById(int id){
+    public void deleteBeerById(int id){
         String deleteReviewSql = "DELETE FROM reviews\n" +
                 "\tWHERE beer_id=?;";
         String deleteBeerSql = "DELETE FROM beer\n" +
@@ -110,7 +109,6 @@ public class JdbcBeerDao implements BeerDao{
         try{
             int rowsDeletedFromReview = jdbcTemplate.update(deleteReviewSql, id);
             int rowsDeletedFromBeer = jdbcTemplate.update(deleteBeerSql, id);
-            return (rowsDeletedFromReview > 0) && (rowsDeletedFromBeer > 0) ;
         }catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         }catch (DataIntegrityViolationException e) { throw new DaoException("Data integrity violation", e);

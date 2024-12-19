@@ -16,5 +16,5 @@ public interface BeerDao {
 
     Boolean updateBeer(Beer beer);
 
-    Boolean deleteBeerById(int id);
+    void deleteBeerById(int id);
 }

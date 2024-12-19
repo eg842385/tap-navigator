@@ -141,13 +141,7 @@ public class JdbcBreweryDao implements BreweryDao{
                 }catch (DataIntegrityViolationException e) { throw new DaoException("Data integrity violation", e);
                 }
 
-
     }
-
-
-
-
-
 
 
     private Brewery mapRowToBrewery(SqlRowSet rs) {
